@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27696e627bfc70e40ac9b937d1116cea, type: 3}
+  m_Name: IceMage
+  m_EditorClassIdentifier: 
+  _name: IceMage
+  _previewImage: {fileID: -179452619, guid: 7d29d80a01437094cb6fd83dfd31774f, type: 3}
+  _heroPrefab: {fileID: 4579377597061678040, guid: a10b6638181965d4e88c0128afdfd2ee, type: 3}
+  _rangeAttack: 4
+  _attackCooldown: 1
+  _damage: 1
+  _rarity: 1

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27696e627bfc70e40ac9b937d1116cea, type: 3}
+  m_Name: DarkMage
+  m_EditorClassIdentifier: 
+  _name: DarkMage
+  _previewImage: {fileID: -822725967, guid: 85a86b4406d80b243b703933408689c6, type: 3}
+  _heroPrefab: {fileID: 1011479526755268703, guid: b2a72b9cf6c7f9f4bbbb05a6cf1d9c5c, type: 3}
+  _rangeAttack: 4
+  _attackCooldown: 1
+  _damage: 1
+  _rarity: 3
