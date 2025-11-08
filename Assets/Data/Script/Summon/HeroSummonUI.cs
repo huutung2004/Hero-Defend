@@ -18,10 +18,13 @@ public class HeroSummonUI : MonoBehaviour
     private void OnEnable()
     {
         HeroSummonManager.OnHeroSummoned += UpdateUI;
+        HeroSummonManager.HeroInventoryFull += ShowFullInventory;
     }
     private void OnDisable()
     {
         HeroSummonManager.OnHeroSummoned -= UpdateUI;
+        HeroSummonManager.HeroInventoryFull -= ShowFullInventory;
+
     }
     private void UpdateUI(HeroData hero)
     {
@@ -46,5 +49,9 @@ public class HeroSummonUI : MonoBehaviour
         _rarityText.text = "Rarity - ";
         _damageText.text = "Damage - ";
         _rangeText.text = "Range - ";
+    }
+    private void ShowFullInventory()
+    {
+        DialogManager.Instance.ShowDialog("Inventory Is Full", 2f);
     }
 }

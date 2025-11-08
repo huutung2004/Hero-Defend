@@ -15,6 +15,7 @@ public class HeroSummonManager : MonoBehaviour
     private float _lastSummonTime;
     //envent
     public static event Action<HeroData> OnHeroSummoned;
+    public static event Action HeroInventoryFull;
     void Awake()
     {
         _heroByRarity = new Dictionary<HeroRarity, List<HeroData>>();
@@ -32,6 +33,11 @@ public class HeroSummonManager : MonoBehaviour
         if (!_canSumon)
         {
             float _remaining = _cooldown - (Time.time - _lastSummonTime);
+            return null;
+        }
+        if (HeroInventory.Instance.IsFull())
+        {
+            HeroInventoryFull?.Invoke();
             return null;
         }
         _canSumon = false;
@@ -53,6 +59,7 @@ public class HeroSummonManager : MonoBehaviour
         Debug.Log(roll);
         Debug.Log($"Summoned: {summonedHero._name} - {summonedHero._rarity}");
         OnHeroSummoned?.Invoke(summonedHero);
+        HeroInventory.Instance.AddHero(summonedHero);
         return summonedHero;
 
     }
