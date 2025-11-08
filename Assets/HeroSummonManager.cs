@@ -9,9 +9,12 @@ public class HeroSummonManager : MonoBehaviour
     [Header("List Hero")]
     [SerializeField] private List<HeroData> _allHeroes;
     private Dictionary<HeroRarity, List<HeroData>> _heroByRarity;
+    [Header("Cooldown")]
+    [SerializeField] private float _cooldown = 2f;
+    private bool _canSumon = true;
+    private float _lastSummonTime;
     //envent
     public static event Action<HeroData> OnHeroSummoned;
-
     void Awake()
     {
         _heroByRarity = new Dictionary<HeroRarity, List<HeroData>>();
@@ -26,6 +29,14 @@ public class HeroSummonManager : MonoBehaviour
     }
     public HeroData Summon()
     {
+        if (!_canSumon)
+        {
+            float _remaining = _cooldown - (Time.time - _lastSummonTime);
+            return null;
+        }
+        _canSumon = false;
+        _lastSummonTime = Time.time;
+        Invoke(nameof(ResetCooldown), _cooldown);
         float roll = UnityEngine.Random.value * 100f;
         HeroRarity rarity;
         if (roll < 70f) rarity = HeroRarity.Common;
@@ -44,6 +55,10 @@ public class HeroSummonManager : MonoBehaviour
         OnHeroSummoned?.Invoke(summonedHero);
         return summonedHero;
 
+    }
+     private void ResetCooldown()
+    {
+        _canSumon = true;
     }
     public void OnClickSummon() => Summon();
 }

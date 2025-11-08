@@ -11,6 +11,10 @@ public class HeroSummonUI : MonoBehaviour
     [SerializeField] private TMP_Text _heroName;
     [SerializeField] private TMP_Text _damageText;
     [SerializeField] private TMP_Text _rangeText;
+    private void Awake()
+    {
+        ResetUI();
+    }
     private void OnEnable()
     {
         HeroSummonManager.OnHeroSummoned += UpdateUI;
@@ -22,10 +26,25 @@ public class HeroSummonUI : MonoBehaviour
     private void UpdateUI(HeroData hero)
     {
         if (hero == null) return;
-        _previewHero.sprite = hero._previewImage;
-        _heroName.text = $"HeroName - {hero._name}";
-        _rarityText.text = $"Rarity - {hero._rarity}";
-        _damageText.text = $"Damage - {hero._damage}";
-        _rangeText.text = $"Range - {hero._rangeAttack}";
+        ResetUI();
+        CircleRotateUI.Instance.StartEffect(() =>
+   {
+       _previewHero.gameObject.SetActive(true);
+       _previewHero.sprite = hero._previewImage;
+       _heroName.text = $"HeroName - {hero._name}";
+       _rarityText.text = $"Rarity - {hero._rarity}";
+       _damageText.text = $"Damage - {hero._damage}";
+       _rangeText.text = $"Range - {hero._rangeAttack}";
+
+       TextEffectSumon.Instance.StartTextEffect();
+   });
+    }
+    private void ResetUI()
+    {
+        if (_previewHero.IsActive()) _previewHero.gameObject.SetActive(false);
+        _heroName.text = "HeroName - ";
+        _rarityText.text = "Rarity - ";
+        _damageText.text = "Damage - ";
+        _rangeText.text = "Range - ";
     }
 }
