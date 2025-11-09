@@ -32,8 +32,8 @@ public class HeroSummonUI : MonoBehaviour
         ResetUI();
         CircleRotateUI.Instance.StartEffect(() =>
    {
-       _previewHero.gameObject.SetActive(true);
        _previewHero.sprite = hero._previewImage;
+       _previewHero.enabled = true;
        _heroName.text = $"HeroName - {hero._name}";
        _rarityText.text = $"Rarity - {hero._rarity}";
        _damageText.text = $"Damage - {hero._damage}";
@@ -44,7 +44,8 @@ public class HeroSummonUI : MonoBehaviour
     }
     private void ResetUI()
     {
-        if (_previewHero.IsActive()) _previewHero.gameObject.SetActive(false);
+        _previewHero.sprite = null;
+        _previewHero.enabled = false;
         _heroName.text = "HeroName - ";
         _rarityText.text = "Rarity - ";
         _damageText.text = "Damage - ";

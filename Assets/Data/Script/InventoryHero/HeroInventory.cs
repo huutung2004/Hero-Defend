@@ -7,7 +7,7 @@ public class HeroInventory : MonoBehaviour
 {
     public static HeroInventory Instance;
     public List<HeroData> heroList = new List<HeroData>();
-    [SerializeField] private int _maxList = 36;
+    [SerializeField] private int _maxList = 32;
     public static event Action InventoryHeroChanged;
 
     void Awake()
