@@ -19,11 +19,14 @@ public class HeroSummonUI : MonoBehaviour
     {
         HeroSummonManager.OnHeroSummoned += UpdateUI;
         HeroSummonManager.HeroInventoryFull += ShowFullInventory;
+        HeroSummonManager.OnCoolDown += ShowDialogCoolDown;
     }
     private void OnDisable()
     {
         HeroSummonManager.OnHeroSummoned -= UpdateUI;
         HeroSummonManager.HeroInventoryFull -= ShowFullInventory;
+        HeroSummonManager.OnCoolDown -= ShowDialogCoolDown;
+
 
     }
     private void UpdateUI(HeroData hero)
@@ -54,5 +57,9 @@ public class HeroSummonUI : MonoBehaviour
     private void ShowFullInventory()
     {
         DialogManager.Instance.ShowDialog("Inventory Is Full", 2f);
+    }
+    private void ShowDialogCoolDown()
+    {
+        DialogManager.Instance.ShowDialog("Please Wait!", 2f);
     }
 }

@@ -16,6 +16,7 @@ public class HeroSummonManager : MonoBehaviour
     //envent
     public static event Action<HeroData> OnHeroSummoned;
     public static event Action HeroInventoryFull;
+    public static event Action OnCoolDown;
     void Awake()
     {
         _heroByRarity = new Dictionary<HeroRarity, List<HeroData>>();
@@ -30,11 +31,14 @@ public class HeroSummonManager : MonoBehaviour
     }
     public HeroData Summon()
     {
+        //kiểm tra cooldown và bắn sự kiện
         if (!_canSumon)
         {
             float _remaining = _cooldown - (Time.time - _lastSummonTime);
+            OnCoolDown?.Invoke();
             return null;
         }
+        //kiếm tra full và bắn sự kiện
         if (HeroInventory.Instance.IsFull())
         {
             HeroInventoryFull?.Invoke();

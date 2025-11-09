@@ -1,31 +1,22 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-[RequireComponent(typeof(Image))]
-public class HeroSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler,IDropHandler
+
+public class LineupSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     private HeroData _heroData;
     private Image _imageHero;
-    private Button _buttonInParent;
     //Drag
     private Transform _originalParent;
     private CanvasGroup _canvasGroup;
-    public static event Action<HeroData> ShowInformationHero;
     void Start()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         if (_canvasGroup == null)
             _canvasGroup = gameObject.AddComponent<CanvasGroup>();
         _imageHero = GetComponent<Image>();
-        _buttonInParent = GetComponentInParent<Button>();
-        if (_buttonInParent != null)
-        {
-            _buttonInParent.onClick.AddListener(() => ButtonHeroClick());
-        }
         SetHero(null);
     }
     public void SetHero(HeroData _data)
@@ -44,19 +35,7 @@ public class HeroSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             _imageHero.color = new Color(1f, 1f, 1f, 0f);
         }
     }
-    public HeroData GetHeroData()
-    {
-        return _heroData;
-    }
-    private void ButtonHeroClick()
-    {
-        ShowInformation();
-    }
-    //Hiển thị thông tin hero được chọn
-    private void ShowInformation()
-    {
-        ShowInformationHero?.Invoke(_heroData);
-    }
+
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -82,16 +61,22 @@ public class HeroSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         transform.SetParent(_originalParent);
         transform.localPosition = Vector3.zero;
         _canvasGroup.blocksRaycasts = true;
+        if (eventData.pointerEnter == null|| eventData.pointerEnter.GetComponent<LineupSlotUI>() == null)
+        {
+            if(_heroData != null)
+            {
+                HeroLineup.Instance.RemoveHeroFromLineup(_heroData);
+                SetHero(null);
+            }
+        }
     }
+
     public void OnDrop(PointerEventData eventData)
     {
-        //SlotUi dang kéo
         HeroSlotUI draggedSlot = eventData.pointerDrag?.GetComponent<HeroSlotUI>();
-        if (draggedSlot == null || draggedSlot == this) return;
-        HeroData draggedHero = draggedSlot._heroData;
-        HeroData targetHero = _heroData;
-        //swap
-        draggedSlot.SetHero(targetHero);
-        SetHero(draggedHero);
+        if (draggedSlot == null) return;
+        HeroData heroData = draggedSlot.GetHeroData();
+        if (HeroLineup.Instance.AddHeroInLineup(heroData))
+            SetHero(heroData);
     }
 }
