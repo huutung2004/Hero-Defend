@@ -61,12 +61,12 @@ public class LineupSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         transform.SetParent(_originalParent);
         transform.localPosition = Vector3.zero;
         _canvasGroup.blocksRaycasts = true;
-        if (eventData.pointerEnter == null|| eventData.pointerEnter.GetComponent<LineupSlotUI>() == null)
+        if (eventData.pointerEnter == null || eventData.pointerEnter.GetComponent<LineupSlotUI>() == null)
         {
-            if(_heroData != null)
+            if (_heroData != null)
             {
                 HeroLineup.Instance.RemoveHeroFromLineup(_heroData);
-                SetHero(null);
+                // SetHero(null);
             }
         }
     }
@@ -76,7 +76,7 @@ public class LineupSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         HeroSlotUI draggedSlot = eventData.pointerDrag?.GetComponent<HeroSlotUI>();
         if (draggedSlot == null) return;
         HeroData heroData = draggedSlot.GetHeroData();
-        if (HeroLineup.Instance.AddHeroInLineup(heroData))
-            SetHero(heroData);
+        HeroLineup.Instance.AddHeroInLineup(heroData);
+        // SetHero(heroData);
     }
 }

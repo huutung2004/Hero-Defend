@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
-public class HeroSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler,IDropHandler
+public class HeroSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     private HeroData _heroData;
     private Image _imageHero;
@@ -15,6 +15,12 @@ public class HeroSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     private Transform _originalParent;
     private CanvasGroup _canvasGroup;
     public static event Action<HeroData> ShowInformationHero;
+    //image của button
+    private Image _imageParent;
+    private static HeroSlotUI _selectedHeroSlot;
+    //event
+    public static event Action<HeroData> SignSellHero;
+
     void Start()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
@@ -24,6 +30,8 @@ public class HeroSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         _buttonInParent = GetComponentInParent<Button>();
         if (_buttonInParent != null)
         {
+
+            _imageParent = _buttonInParent.gameObject.GetComponent<Image>();
             _buttonInParent.onClick.AddListener(() => ButtonHeroClick());
         }
         SetHero(null);
@@ -50,8 +58,15 @@ public class HeroSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     }
     private void ButtonHeroClick()
     {
+        if (_selectedHeroSlot != null && _selectedHeroSlot != this)
+            _selectedHeroSlot.Deselect();
+        _selectedHeroSlot = this;
+        if (_heroData != null)
+            SignSellHero?.Invoke(_heroData);
+        Select();
         ShowInformation();
     }
+
     //Hiển thị thông tin hero được chọn
     private void ShowInformation()
     {
@@ -93,5 +108,21 @@ public class HeroSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         //swap
         draggedSlot.SetHero(targetHero);
         SetHero(draggedHero);
+    }
+    //Select and Deselect
+    private void Select()
+    {
+        if (_imageParent != null)
+        {
+            _imageParent.color = new Color(246f / 255f, 210f / 255f, 210f / 255f);
+        }
+    }
+
+    private void Deselect()
+    {
+        if (_imageParent != null)
+        {
+            _imageParent.color = Color.white;
+        }
     }
 }

@@ -9,6 +9,7 @@ public class HeroInventory : MonoBehaviour
     public List<HeroData> heroList = new List<HeroData>();
     [SerializeField] private int _maxList = 32;
     public static event Action InventoryHeroChanged;
+    public static event Action<HeroData> InventoryHeroRemoved;
 
     void Awake()
     {
@@ -27,6 +28,7 @@ public class HeroInventory : MonoBehaviour
     {
         heroList.Remove(sellHero);
         InventoryHeroChanged?.Invoke();
+        InventoryHeroRemoved?.Invoke(sellHero);
 
     }
     public bool IsFull()
