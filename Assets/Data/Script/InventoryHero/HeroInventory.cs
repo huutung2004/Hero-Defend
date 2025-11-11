@@ -36,4 +36,8 @@ public class HeroInventory : MonoBehaviour
         if (heroList.Count >= _maxList) return true;
         else return false;
     }
+    public static void NotifyHeroChanged()
+    {
+        InventoryHeroChanged?.Invoke();
+    }
 }

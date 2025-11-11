@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class HeroInventoryUI : MonoBehaviour
 {
+    public static HeroInventoryUI Instance;
     [SerializeField] private Transform contentParent;
     [SerializeField] private List<HeroSlotUI> _heroSlots = new List<HeroSlotUI>();
     [Header("Hero Detail UI")]
@@ -16,12 +17,14 @@ public class HeroInventoryUI : MonoBehaviour
     private bool _isInitialized = false;
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         InitializeSlots();
     }
     void Start()
     {
-        _isInitialized = true;
-        Refresh();
         RefreshDetail();
     }
     private void InitializeSlots()
@@ -42,6 +45,7 @@ public class HeroInventoryUI : MonoBehaviour
                 }
             }
         }
+        _isInitialized = true;
         Debug.Log($"Initialized {_heroSlots.Count} hero slots");
     }
 
@@ -49,11 +53,6 @@ public class HeroInventoryUI : MonoBehaviour
     {
         HeroInventory.InventoryHeroChanged += Refresh;
         HeroSlotUI.ShowInformationHero += ShowHeroDetail;
-
-        if (_isInitialized)
-        {
-            Refresh();
-        }
     }
     private void OnDisable()
     {

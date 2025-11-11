@@ -52,4 +52,8 @@ public class HeroLineup : MonoBehaviour
             OnHeroLineupChanged?.Invoke();
         }
     }
+    public static void NotifiHeroChanged()
+    {
+        OnHeroLineupChanged?.Invoke();
+    }
 }

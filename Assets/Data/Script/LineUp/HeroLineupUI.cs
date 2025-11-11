@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class HeroLineupUI : MonoBehaviour
 {
+    public static HeroLineupUI Instance;
     private HeroData _heroData;
     [SerializeField] private List<LineupSlotUI> lineupSlotUIs = new List<LineupSlotUI>();
+    private bool _isInitialized = false;
+
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         InitializeSlots();
     }
     private void OnEnable()
@@ -17,8 +24,8 @@ public class HeroLineupUI : MonoBehaviour
     private void OnDisable()
     {
         HeroLineup.OnHeroLineupChanged -= RefreshUI;
-
     }
+
     private void InitializeSlots()
     {
         lineupSlotUIs.Clear();
@@ -33,12 +40,15 @@ public class HeroLineupUI : MonoBehaviour
                 }
             }
         }
+        _isInitialized = true;
+
         Debug.Log($"Initialized {lineupSlotUIs.Count} heroLineup slots");
     }
-    private void RefreshUI()
+    public void RefreshUI()
     {
-        if (HeroLineup.Instance == null) return;
+        if (!_isInitialized && HeroLineup.Instance == null) return;
         List<HeroData> listHeroLineup = HeroLineup.Instance.listHeroLineup;
+        Debug.Log($"Refreshing {listHeroLineup.Count} herolineup");
         for (int i = 0; i < lineupSlotUIs.Count; i++)
         {
             if (i < listHeroLineup.Count)

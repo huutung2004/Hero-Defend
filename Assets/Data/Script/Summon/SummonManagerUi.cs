@@ -22,6 +22,10 @@ public class SummonManagerUi : MonoBehaviour
         if (_panelSummon.IsActive())
         {
             _panelSummon.gameObject.SetActive(false);
-        }else _panelSummon.gameObject.SetActive(true);
+        }
+        else
+        {
+            _panelSummon.gameObject.SetActive(true);
+        }
     }
 }
