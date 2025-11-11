@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ScaleCamera : MonoBehaviour
 {
-    public ScaleCamera _instance{ get; private set; }
+    public static ScaleCamera _instance{ get; private set; }
     private Camera cam;
     private float lastAspect;
 

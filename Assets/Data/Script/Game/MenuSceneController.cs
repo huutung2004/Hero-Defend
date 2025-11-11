@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MenuSceneController : MonoBehaviour
 {
     [SerializeField] private Button _play;
-     [SerializeField] private Button _exit;
+    [SerializeField] private Button _exit;
     void Start()
     {
         _play.onClick.AddListener(() => OnPlay());
@@ -20,6 +20,13 @@ public class MenuSceneController : MonoBehaviour
     }
     private void OnExit()
     {
+        if (SaveLoadManager.Instance != null)
+            SaveLoadManager.Instance.Save();
+        StartCoroutine(QuitAfterSave());
+    }
+    private IEnumerator QuitAfterSave()
+    {
+        yield return new WaitForSeconds(1f);
         Application.Quit();
     }
 }
