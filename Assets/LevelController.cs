@@ -16,8 +16,16 @@ public class LevelController : MonoBehaviour
     [SerializeField] private BaseWaveData _LastWave;
     //Button Start
     [SerializeField] private Button _buttonStart;
+    //Point Spawn Enemy
+    [SerializeField] private Transform _pointSpawn;
+    //For Level
     private int _levelSelected;
+    private int _waveCount;
+    private int _totalWave;
+    //event
     public static event Action<int> OnChangeWaveState;
+    public static event Action OnCompleteLevel;
+    public static event Action<int, int> WavePerTotal;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -32,6 +40,7 @@ public class LevelController : MonoBehaviour
         try
         {
             _levelSelected = int.Parse(MapSelectionManager.Instance.GetLevel());
+            _totalWave = _levelDatas[_levelSelected - 1]._totalWave;
         }
         catch (Exception e)
         {
@@ -51,8 +60,8 @@ public class LevelController : MonoBehaviour
     }
     private void StartFirstWave()
     {
-        OnChangeWaveState?.Invoke(_startWave._timeWave);
         _buttonStart.gameObject.SetActive(false);
+        StartWave();
     }
     private void OnEnable()
     {
@@ -64,11 +73,46 @@ public class LevelController : MonoBehaviour
     }
     private void StartWave()
     {
+        if (_waveCount > _totalWave)
+        {
+            OnCompleteLevel?.Invoke();
+            return;
+        }
+        _waveCount += 1;
+        WavePerTotal?.Invoke(_waveCount,_totalWave);
         Debug.Log("Bắt đầu wave mới");
-        OnChangeWaveState?.Invoke(_startWave._timeWave);
+        //1-mid
+        if (_waveCount < _totalWave / 2)
+        {
+            OnChangeWaveState?.Invoke(_startWave._timeWave);
+            SpawnEnemy(_startWave);
+            //mid-last
+        }
+        else if (_waveCount != _totalWave)
+        {
+            OnChangeWaveState?.Invoke(_midWave._timeWave);
+            SpawnEnemy(_midWave);
+        }
+        //last
+        else
+        {
+            OnChangeWaveState?.Invoke(_LastWave._timeWave);
+            SpawnEnemy(_LastWave);
+        }
+
     }
-    public IEnumerator DelaySpawnEnemy()
+    private void SpawnEnemy(BaseWaveData waveData)
     {
-        yield return new WaitForSeconds(0.3f);
+        StartCoroutine(DelaySpawnEnemy(waveData));
+    }
+    public IEnumerator DelaySpawnEnemy(BaseWaveData waveData)
+    {
+        for (int i = 1; i <= waveData._totalEnemy; i++)
+        {
+            //Spawm
+            Instantiate(waveData.enemyDatas[0]._enemyPrefab, _pointSpawn.position, _pointSpawn.rotation);
+            Debug.Log($"Spawn Enemy{i}");
+            yield return new WaitForSeconds(1f);
+        }
     }
 }

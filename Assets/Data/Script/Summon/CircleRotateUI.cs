@@ -13,7 +13,6 @@ public class CircleRotateUI : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float totalRotation = 7200f; // tổng số độ quay
     [SerializeField] private float rotateDuration = 2.5f;
-    [SerializeField] private float pauseDuration = 0.5f;
     [SerializeField] private float resetDuration = 0.2f;
     void Awake()
     {

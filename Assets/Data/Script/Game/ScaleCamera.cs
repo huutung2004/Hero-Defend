@@ -5,9 +5,6 @@ public class ScaleCamera : MonoBehaviour
     public static ScaleCamera _instance{ get; private set; }
     private Camera cam;
     private float lastAspect;
-
-    [SerializeField] private float referenceWidth = 1920f;
-    [SerializeField] private float referenceHeight = 1080f;
     [SerializeField] private float baseOrthoSize = 5f; // kích cỡ camera khi ngang
 
     void Start()
