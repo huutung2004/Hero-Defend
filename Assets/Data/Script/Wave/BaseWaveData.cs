@@ -6,5 +6,7 @@ public class BaseWaveData : ScriptableObject
 {
     public int _timeWave;
     public int _totalEnemy;
-    public List<EnemyData> enemyDatas;
+    public EnemyData _enemyLeader;
+    public EnemyData _enemyBasic;
+    public EnemyData _enemyBoss;
 }

@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadTIlemapLevel : MonoBehaviour
 {
@@ -8,34 +8,49 @@ public class LoadTIlemapLevel : MonoBehaviour
     private string _level;
     [SerializeField] private List<GameObject> listTilemapPrefabs;
 
-    void Awake()
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
         Instance = this;
+
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    void Start()
+
+    private void OnDestroy()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != "WaveScene")
+            return;
+
         _level = MapSelectionManager.Instance.GetLevel();
-        if (_level == null)
+        if (string.IsNullOrEmpty(_level))
         {
-            Debug.Log("level map is missing (Invoke is missing)");
+            Debug.Log("Level map is missing");
             return;
         }
-        if (listTilemapPrefabs.Count < 1)
-        {
-            Debug.Log("Tilemap is empty");
-            return;
-        }
+
         LoadTilemap();
     }
+
     private void LoadTilemap()
     {
-        int levelmap = int.Parse(_level);
-        Instantiate(listTilemapPrefabs[levelmap-1]);
+        int levelIndex = int.Parse(_level);
+        if (levelIndex - 1 >= listTilemapPrefabs.Count)
+        {
+            Debug.LogError("Tilemap index out of range");
+            return;
+        }
 
+        Instantiate(listTilemapPrefabs[levelIndex - 1]);
+        Debug.Log("Đã load tilemap level " + levelIndex);
     }
 }

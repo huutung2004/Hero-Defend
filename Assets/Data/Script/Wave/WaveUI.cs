@@ -20,6 +20,7 @@ public class WaveUI : MonoBehaviour
     }
     private void RefreshUI(int _waveCount, int _waveTotal)
     {
+        DialogManager.Instance.ShowDialog($"Wave {_waveCount}",1f);
         _waveText.text = $"Wave: {_waveCount}/{_waveTotal}";
     }
 }

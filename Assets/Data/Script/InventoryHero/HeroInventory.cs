@@ -28,6 +28,7 @@ public class HeroInventory : MonoBehaviour
             heroList.Add(newHero);
             InventoryHeroChanged?.Invoke();
         }
+        else Debug.LogWarning("Inventory is full");
     }
     public void SellHero(HeroData sellHero)
     {

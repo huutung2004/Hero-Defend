@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeWave: 80
   _totalEnemy: 10
-  enemyDatas:
-  - {fileID: 11400000, guid: 3aaafecc3e0216743bb1af54aefcbcae, type: 2}
+  _enemyLeader: {fileID: 11400000, guid: 3aaafecc3e0216743bb1af54aefcbcae, type: 2}
+  _enemyBasic: {fileID: 11400000, guid: 3aaafecc3e0216743bb1af54aefcbcae, type: 2}
+  _enemyBoss: {fileID: 11400000, guid: 830b22d857fe34c4b9fd4b104899d0cc, type: 2}

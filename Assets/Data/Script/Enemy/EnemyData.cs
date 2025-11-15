@@ -6,9 +6,9 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     public string _name;
-    public float _hp;
     public GameObject _enemyPrefab;
     public Sprite _spriteEnemy;
     public EnemyType enemyType;
+    public int _goldDrop;
 
 }

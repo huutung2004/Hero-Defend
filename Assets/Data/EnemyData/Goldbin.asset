@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfe00b7ca0a0be84ca9524d20943adc0, type: 3}
-  m_Name: Test1
+  m_Name: Goldbin
   m_EditorClassIdentifier: 
-  _name: Enemy1
-  _hp: 100
-  _enemyPrefab: {fileID: 1011479526755268703, guid: b2a72b9cf6c7f9f4bbbb05a6cf1d9c5c, type: 3}
-  _spriteEnemy: {fileID: -822725967, guid: 85a86b4406d80b243b703933408689c6, type: 3}
-  enemyType: 0
+  _name: Goldbin
+  _enemyPrefab: {fileID: 5866010232464276698, guid: ed5063a9a449e2144b852b42e41021e8, type: 3}
+  _spriteEnemy: {fileID: 1092616335, guid: c537200def17ccd47afa7f4220fb43f9, type: 3}
+  enemyType: 3
+  _goldDrop: 1

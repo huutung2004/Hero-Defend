@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe00b7ca0a0be84ca9524d20943adc0, type: 3}
+  m_Name: Slime
+  m_EditorClassIdentifier: 
+  _name: Slime
+  _enemyPrefab: {fileID: 4189053802133996469, guid: b36dec0cfae2fb145bb69df150965010, type: 3}
+  _spriteEnemy: {fileID: 609628029, guid: 4b93e1a0c92b87d4999f156b4b601e5b, type: 3}
+  enemyType: 2
+  _goldDrop: 1

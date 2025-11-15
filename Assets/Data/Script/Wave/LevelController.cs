@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,9 +20,11 @@ public class LevelController : MonoBehaviour
     private int _levelSelected;
     private int _waveCount;
     private int _totalWave;
+    public int _totalDiamondReward;
+    public List<HeroData> _heroRewards;
     //event
     public static event Action<int> OnChangeWaveState;
-    public static event Action OnCompleteLevel;
+    public static event Action OnFailLevel;
     public static event Action<int, int> WavePerTotal;
     private void Awake()
     {
@@ -33,7 +33,6 @@ public class LevelController : MonoBehaviour
             Destroy(gameObject);
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
@@ -41,6 +40,8 @@ public class LevelController : MonoBehaviour
         {
             _levelSelected = int.Parse(MapSelectionManager.Instance.GetLevel());
             _totalWave = _levelDatas[_levelSelected - 1]._totalWave;
+            _totalDiamondReward = _levelDatas[_levelSelected - 1]._diamondReward;
+            _heroRewards = _levelDatas[_levelSelected - 1].heroRewards;
         }
         catch (Exception e)
         {
@@ -71,15 +72,16 @@ public class LevelController : MonoBehaviour
     {
         TimeWaveUI.OnTimeStamp -= StartWave;
     }
-    private void StartWave()
+    public void StartWave()
     {
-        if (_waveCount > _totalWave)
+        if (_waveCount >= _totalWave)
         {
-            OnCompleteLevel?.Invoke();
+            OnFailLevel?.Invoke();
+            OnChangeWaveState?.Invoke(0);
             return;
         }
         _waveCount += 1;
-        WavePerTotal?.Invoke(_waveCount,_totalWave);
+        WavePerTotal?.Invoke(_waveCount, _totalWave);
         Debug.Log("Bắt đầu wave mới");
         //1-mid
         if (_waveCount < _totalWave / 2)
@@ -107,12 +109,43 @@ public class LevelController : MonoBehaviour
     }
     public IEnumerator DelaySpawnEnemy(BaseWaveData waveData)
     {
+        if (EnemyPool.Instance == null)
+        {
+            Debug.LogError("EnemyPool is missing!");
+            yield break;
+        }
         for (int i = 1; i <= waveData._totalEnemy; i++)
         {
-            //Spawm
-            Instantiate(waveData.enemyDatas[0]._enemyPrefab, _pointSpawn.position, _pointSpawn.rotation);
-            Debug.Log($"Spawn Enemy{i}");
-            yield return new WaitForSeconds(1f);
+            //Spawm Boss
+            if (i == 1)
+            {
+                EnemyType type = waveData._enemyBoss.enemyType;
+                GameObject boss = EnemyPool.Instance.GetEnemy(type, _pointSpawn.position);
+                boss.GetComponent<EnemyMovement>().InitWaypoints(GameObject.FindWithTag("Waypoints").transform);
+                boss.transform.localScale = new Vector3(1.5f, 1.5f, 0);
+                boss.GetComponent<EnemyHealth>().InitHeal(100f);
+                yield return new WaitForSeconds(0.5f);
+            }
+            //SpawnLeader
+            else if (i == 2)
+            {
+                EnemyType type = waveData._enemyLeader.enemyType;
+                GameObject boss = EnemyPool.Instance.GetEnemy(type, _pointSpawn.position);
+                boss.GetComponent<EnemyMovement>().InitWaypoints(GameObject.FindWithTag("Waypoints").transform);
+
+                yield return new WaitForSeconds(0.5f);
+            }
+            else
+            {
+                EnemyType type = waveData._enemyBasic.enemyType;
+                GameObject boss = EnemyPool.Instance.GetEnemy(type, _pointSpawn.position);
+                boss.GetComponent<EnemyMovement>().InitWaypoints(GameObject.FindWithTag("Waypoints").transform);
+                yield return new WaitForSeconds(0.5f);
+            }
         }
+    }
+    public bool IsLastWave()
+    {
+        return _waveCount == _totalWave;
     }
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public enum EnemyType
 {
-    Normal_1,
-    Normal_2,
-    Normal_3,
-    Normal_4,
+    Bee,
+    Dog,
+    Slime,
+    Goldbin,
 
 
 }
