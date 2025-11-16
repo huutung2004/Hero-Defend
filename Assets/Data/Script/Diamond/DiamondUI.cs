@@ -26,6 +26,6 @@ public class DiamondUI : MonoBehaviour
     private void RefreshUI()
     {
         if (_textDiamond == null || CurrencyManager.Instance == null) return;
-        _textDiamond.text = $"Diamond - {CurrencyManager.Instance.GetCurrentDiamond()}";
+        _textDiamond.text = $"{CurrencyManager.Instance.GetCurrentDiamond()}";
     }
 }

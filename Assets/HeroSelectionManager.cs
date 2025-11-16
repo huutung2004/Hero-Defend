@@ -58,6 +58,13 @@ public class HeroSelectionManager : MonoBehaviour
             }
             return;
         }
+        //kiem tra đã có hero chưa
+        Collider2D heroAtTarget = Physics2D.OverlapCircle(cellCenter, 0.1f, LayerMask.GetMask("Hero"));
+        if (heroAtTarget != null)
+        {
+            Debug.Log("Ô đã có hero!");
+            return;
+        }
         //Di chuyển hero
         selectedHero.TeleportTo(cellCenter);
         selectedHero.SelectHero(false);

@@ -7,11 +7,15 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float _maxHeal;
     [SerializeField] private float _currentHeal;
     private Animator _animator;
+    private EnemyData _enemyData;
+
     // Start is called before the first frame update
     void Start()
     {
         _currentHeal = _maxHeal;
         _animator = GetComponent<Animator>();
+        _enemyData = GetComponent<Enemy>().enemyData;
+
     }
     public void ChangeHeal(float value)
     {
@@ -20,6 +24,9 @@ public class EnemyHealth : MonoBehaviour
         if (_currentHeal <= 0)
         {
             _animator.SetBool("Death", true);
+            var obj = GoldEffectPool.Instance.GetGoldEffect();
+            obj.Play(transform.position, _enemyData._goldDrop);
+            GoldManager.Instance.ChangeTotalGold(_enemyData._goldDrop);
             EnemyPool.Instance.ReturnEnemyToPool(gameObject);
         }
     }
