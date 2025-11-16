@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4463525960044891144}
   - component: {fileID: 4313336621415313530}
   - component: {fileID: 8406748176429801037}
+  - component: {fileID: 7248912090911026314}
   m_Layer: 7
   m_Name: DarkMage_0
   m_TagString: Untagged
@@ -170,3 +171,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _projectileType: 1
+--- !u!114 &7248912090911026314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011479526755268703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa255c144606d24fb2180da8906bab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

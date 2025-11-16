@@ -21,6 +21,7 @@ public class LevelController : MonoBehaviour
     private int _waveCount;
     private int _totalWave;
     public int _totalDiamondReward;
+    public int _startGold;
     public List<HeroData> _heroRewards;
     //event
     public static event Action<int> OnChangeWaveState;
@@ -42,6 +43,9 @@ public class LevelController : MonoBehaviour
             _totalWave = _levelDatas[_levelSelected - 1]._totalWave;
             _totalDiamondReward = _levelDatas[_levelSelected - 1]._diamondReward;
             _heroRewards = _levelDatas[_levelSelected - 1].heroRewards;
+            _startGold = _levelDatas[_levelSelected - 1]._startGold;
+            //init gold for level
+            GoldManager.Instance.SetTotalGold(_startGold);
         }
         catch (Exception e)
         {
@@ -81,7 +85,9 @@ public class LevelController : MonoBehaviour
             return;
         }
         _waveCount += 1;
+        //ban su kien wave/wave
         WavePerTotal?.Invoke(_waveCount, _totalWave);
+
         Debug.Log("Bắt đầu wave mới");
         //1-mid
         if (_waveCount < _totalWave / 2)

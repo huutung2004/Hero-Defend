@@ -56,10 +56,19 @@ public class TilemapDropHandler : MonoBehaviour
             Debug.Log("Tile này đã có hero!");
             return false;
         }
-
-        GameObject hero = Instantiate(heroData._heroPrefab, spawnPos, Quaternion.identity);
-        hero.layer = heroLayer;
-        return true;
+        if (GoldManager.Instance.GetTotalGold() < heroData._goldToSpawn)
+        {
+            DialogManager.Instance.ShowDialog($"Not Enought Gold - {heroData._goldToSpawn}");
+            Debug.Log("Not enought gold");
+            return false;
+        }
+        else
+        {
+            GoldManager.Instance.ChangeTotalGold(-heroData._goldToSpawn);
+            GameObject hero = Instantiate(heroData._heroPrefab, spawnPos, Quaternion.identity);
+            hero.layer = heroLayer;
+            return true;
+        }
     }
 
     //gizmos
