@@ -2166,6 +2166,7 @@ GameObject:
   - component: {fileID: 4752230272883984146}
   - component: {fileID: 54511662775921829}
   - component: {fileID: 6698494522679163612}
+  - component: {fileID: 1469681630843823488}
   m_Layer: 6
   m_Name: placeHero
   m_TagString: Untagged
@@ -2614,6 +2615,21 @@ MonoBehaviour:
   _placeHeroTilemap: {fileID: 0}
   _cursorCustom: {fileID: 7243361242771507199, guid: 2934751c88e0733498c1d6cc30752c31, type: 3}
   _mainCamera: {fileID: 0}
+--- !u!114 &1469681630843823488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629697358571909996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c7fa772623c1244831d689f5e9501e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _placeHeroTilemap: {fileID: 0}
+  checkRadius: 0.05
+  debugCell: {x: 0, y: 0, z: 0}
 --- !u!1 &8772621604675521514
 GameObject:
   m_ObjectHideFlags: 0

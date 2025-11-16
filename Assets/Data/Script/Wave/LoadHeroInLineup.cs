@@ -35,6 +35,7 @@ public class LoadHeroInLineup : MonoBehaviour
             var hero = Instantiate(_HeroPrefab, _HeroContain);
             var _heroImage = hero.GetComponentsInChildren<Image>();
             _heroImage[1].sprite = _heroInLineup[i]._previewImage;
+            _heroImage[1].gameObject.GetComponent<HeroLineupSlotUI>().SetHero(_heroInLineup[i]);
         }
     }
 }
