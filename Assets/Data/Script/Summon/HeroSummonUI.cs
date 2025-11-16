@@ -20,12 +20,14 @@ public class HeroSummonUI : MonoBehaviour
         HeroSummonManager.OnHeroSummoned += UpdateUI;
         HeroSummonManager.HeroInventoryFull += ShowFullInventory;
         HeroSummonManager.OnCoolDown += ShowDialogCoolDown;
+        HeroSummonManager.NotEnoughtDiamond += ShowDialogNotEnought;
     }
     private void OnDisable()
     {
         HeroSummonManager.OnHeroSummoned -= UpdateUI;
         HeroSummonManager.HeroInventoryFull -= ShowFullInventory;
         HeroSummonManager.OnCoolDown -= ShowDialogCoolDown;
+        HeroSummonManager.NotEnoughtDiamond -= ShowDialogNotEnought;
 
 
     }
@@ -61,5 +63,9 @@ public class HeroSummonUI : MonoBehaviour
     private void ShowDialogCoolDown()
     {
         DialogManager.Instance.ShowDialog("Please Wait!", 2f);
+    }
+    private void ShowDialogNotEnought()
+    {
+        DialogManager.Instance.ShowDialog("Not Enought Dimond (10 Diamomd)!", 2f);
     }
 }

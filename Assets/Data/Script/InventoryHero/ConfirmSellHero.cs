@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class ConfirmSellHero : MonoBehaviour
 {
     [SerializeField] private Button _buttonSell;
     [SerializeField] private Button _buutonCancel;
+    [SerializeField] private TMP_Text _priceSell;
     private HeroData _heroSell;
 
     void Awake()
@@ -40,6 +42,7 @@ public class ConfirmSellHero : MonoBehaviour
         if (_hero != null)
         {
             _heroSell = _hero;
+            _priceSell.text = $"{_hero._price} - D";
             Debug.Log("đã nhận herota từ event");
         }
         else

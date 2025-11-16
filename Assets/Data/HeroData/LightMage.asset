@@ -18,4 +18,5 @@ MonoBehaviour:
   _rangeAttack: 4
   _attackCooldown: 1
   _damage: 1
+  _price: 5
   _rarity: 2

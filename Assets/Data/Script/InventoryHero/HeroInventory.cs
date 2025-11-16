@@ -35,6 +35,7 @@ public class HeroInventory : MonoBehaviour
         heroList.Remove(sellHero);
         InventoryHeroChanged?.Invoke();
         InventoryHeroRemoved?.Invoke(sellHero);
+        CurrencyManager.Instance.ChangeCurrentDiamond(sellHero._price);
 
     }
     public bool IsFull()

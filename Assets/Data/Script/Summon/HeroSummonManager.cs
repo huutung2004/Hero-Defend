@@ -13,10 +13,13 @@ public class HeroSummonManager : MonoBehaviour
     [SerializeField] private float _cooldown = 2f;
     private bool _canSumon = true;
     private float _lastSummonTime;
+    [Header("Price")]
+    [SerializeField] private int _dimondPerOnece = 10;
     //envent
     public static event Action<HeroData> OnHeroSummoned;
     public static event Action HeroInventoryFull;
     public static event Action OnCoolDown;
+    public static event Action NotEnoughtDiamond;
     void Awake()
     {
         _heroByRarity = new Dictionary<HeroRarity, List<HeroData>>();
@@ -32,6 +35,12 @@ public class HeroSummonManager : MonoBehaviour
     public HeroData Summon()
     {
         //kiểm tra cooldown và bắn sự kiện
+        if (CurrencyManager.Instance.GetCurrentDiamond() < _dimondPerOnece)
+        {
+
+            NotEnoughtDiamond?.Invoke();
+        }
+        else CurrencyManager.Instance.ChangeCurrentDiamond(-_dimondPerOnece);
         if (!_canSumon)
         {
             float _remaining = _cooldown - (Time.time - _lastSummonTime);
@@ -67,7 +76,7 @@ public class HeroSummonManager : MonoBehaviour
         return summonedHero;
 
     }
-     private void ResetCooldown()
+    private void ResetCooldown()
     {
         _canSumon = true;
     }

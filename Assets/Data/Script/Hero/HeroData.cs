@@ -10,5 +10,6 @@ public class HeroData : ScriptableObject
     public float _rangeAttack;
     public float _attackCooldown;
     public float _damage;
+    public int _price;
     public HeroRarity _rarity;
 }
