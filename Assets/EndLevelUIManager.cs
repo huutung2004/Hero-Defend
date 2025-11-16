@@ -56,6 +56,7 @@ public class EndLevelUIManager : MonoBehaviour
                 var img = obj.GetComponent<Image>();
                 img.sprite = hero._previewImage;
             }
+            MapSelectionManager.Instance.UnlockNewMap();
         }
         else
         {

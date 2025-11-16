@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1214963727994157142}
   - component: {fileID: 4463525960044891144}
   - component: {fileID: 4313336621415313530}
+  - component: {fileID: 8406748176429801037}
   m_Layer: 7
   m_Name: DarkMage_0
   m_TagString: Untagged
@@ -152,3 +153,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8406748176429801037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011479526755268703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b6d15a33705ae4dadb074fcaaeeb7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroData: {fileID: 11400000, guid: 590df16c1df7e4645bfc7b778f772416, type: 2}
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _projectileType: 1

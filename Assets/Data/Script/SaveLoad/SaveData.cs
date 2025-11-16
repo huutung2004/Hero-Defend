@@ -14,3 +14,8 @@ public class HeroSaveWrapper
     public List<HeroSaveData> lineupSave = new List<HeroSaveData>();
 
 }
+[System.Serializable]
+public class MapUnLock
+{
+    public int _totalMap;
+}

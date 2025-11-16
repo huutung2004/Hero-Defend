@@ -47,11 +47,14 @@ public class SaveLoadManager : MonoBehaviour
     {
         //SaveHero
         HeroSaveSystem.Save(HeroInventory.Instance.heroList, HeroLineup.Instance.listHeroLineup);
+        MapUnlockSaveLoad.Save();
 
     }
     public void Load()
     {
         //LoadHero
         HeroSaveSystem.Load(HeroInventory.Instance.heroList, HeroLineup.Instance.listHeroLineup, allHero);
+        MapUnlockSaveLoad.Load();
+
     }
 }

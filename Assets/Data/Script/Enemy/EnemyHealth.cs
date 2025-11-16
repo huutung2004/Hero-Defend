@@ -13,9 +13,10 @@ public class EnemyHealth : MonoBehaviour
         _currentHeal = _maxHeal;
         _animator = GetComponent<Animator>();
     }
-    private void ChangeHeal(float value)
+    public void ChangeHeal(float value)
     {
         _currentHeal = Mathf.Clamp(_currentHeal + value, 0, _maxHeal);
+        Debug.Log($"Hp: {_currentHeal}");
         if (_currentHeal <= 0)
         {
             _animator.SetBool("Death", true);

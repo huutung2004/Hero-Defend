@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1702049076232909343}
   - component: {fileID: 1505167921698691594}
   - component: {fileID: 3286715406267031668}
+  - component: {fileID: 6966607892058321110}
   m_Layer: 7
   m_Name: FireHero_0
   m_TagString: Untagged
@@ -152,3 +153,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6966607892058321110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2886330371619390123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b6d15a33705ae4dadb074fcaaeeb7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroData: {fileID: 11400000, guid: f5380f9b5962b0140bd01b4d9812aa30, type: 2}
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _projectileType: 2
