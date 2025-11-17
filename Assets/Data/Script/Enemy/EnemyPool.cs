@@ -15,7 +15,7 @@ public class EnemyPool : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
 
         InitPools();
     }

@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
     // gán parent chứa tất cả waypoint
     [SerializeField] private Transform waypointsParent;
     public float speed = 2f;
-
+    [SerializeField] private int _reduceHp = 1;
     private List<Transform> waypoints = new List<Transform>();
     private int currentIndex = 0;
     private Animator animator;
@@ -65,6 +65,7 @@ public class EnemyMovement : MonoBehaviour
     void ReachDestination()
     {
         Debug.Log("Enemy has reached the destination!");
+        HpLevelManager.Instance.ChangeHp(-_reduceHp);
         EnemyPool.Instance.ReturnEnemyToPool(gameObject);
     }
     // -------- Vẽ đường đi bằng Gizmos --------

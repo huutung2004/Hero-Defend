@@ -23,11 +23,14 @@ public class EndLevelUIManager : MonoBehaviour
     {
         LevelController.OnFailLevel += IsFailed;
         EnemyManager.OnEnemyClear += IsComplete;
+        HpLevelManager.OnZeroHp += IsFailed;
     }
     private void OnDisable()
     {
         LevelController.OnFailLevel -= IsFailed;
         EnemyManager.OnEnemyClear -= IsComplete;
+        HpLevelManager.OnZeroHp -= IsFailed;
+
     }
     private void IsFailed()
     {
@@ -47,6 +50,8 @@ public class EndLevelUIManager : MonoBehaviour
         {
             _headerText.text = "Complete";
             _diamondText.text = $"Diamond-{LevelController.Instance._totalDiamondReward}";
+            //nhan diamond
+            CurrencyManager.Instance.ChangeCurrentDiamond(LevelController.Instance._totalDiamondReward);
             foreach (var hero in LevelController.Instance._heroRewards)
             {
                 //add to inventory
@@ -62,11 +67,13 @@ public class EndLevelUIManager : MonoBehaviour
         {
             _headerText.text = "Failed";
             _diamondText.text = $"Diamond-{LevelController.Instance._totalDiamondReward / 3}";
+            //nhan diamond
+            CurrencyManager.Instance.ChangeCurrentDiamond(LevelController.Instance._totalDiamondReward/3);
         }
 
         _buttonConfirm.onClick.AddListener(() => BackToMain());
     }
-    private void BackToMain()
+    public void BackToMain()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainScene");

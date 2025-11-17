@@ -15,5 +15,6 @@ MonoBehaviour:
   _totalWave: 10
   _diamondReward: 50
   _startGold: 100
+  _totalHp: 30
   heroRewards:
   - {fileID: 11400000, guid: 98e35a6fca1d91d429137af4011ab637, type: 2}

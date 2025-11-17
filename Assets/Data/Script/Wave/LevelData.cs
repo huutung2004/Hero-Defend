@@ -7,6 +7,7 @@ public class LevelData : ScriptableObject
     public int _totalWave;
     public int _diamondReward;
     public int _startGold;
+    public int _totalHp;
     public List<HeroData> heroRewards;
 
 }

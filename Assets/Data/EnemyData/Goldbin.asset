@@ -16,4 +16,4 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 5866010232464276698, guid: ed5063a9a449e2144b852b42e41021e8, type: 3}
   _spriteEnemy: {fileID: 1092616335, guid: c537200def17ccd47afa7f4220fb43f9, type: 3}
   enemyType: 3
-  _goldDrop: 20
+  _goldDrop: 100

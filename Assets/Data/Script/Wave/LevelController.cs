@@ -22,6 +22,7 @@ public class LevelController : MonoBehaviour
     private int _totalWave;
     public int _totalDiamondReward;
     public int _startGold;
+    public int _totalHP;
     public List<HeroData> _heroRewards;
     //event
     public static event Action<int> OnChangeWaveState;
@@ -44,8 +45,11 @@ public class LevelController : MonoBehaviour
             _totalDiamondReward = _levelDatas[_levelSelected - 1]._diamondReward;
             _heroRewards = _levelDatas[_levelSelected - 1].heroRewards;
             _startGold = _levelDatas[_levelSelected - 1]._startGold;
+            _totalHP = _levelDatas[_levelSelected - 1]._totalHp;
             //init gold for level
             GoldManager.Instance.SetTotalGold(_startGold);
+            //init hp for level
+            HpLevelManager.Instance.InitTotalHP(_totalHP);
         }
         catch (Exception e)
         {

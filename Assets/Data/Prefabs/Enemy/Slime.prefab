@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointsParent: {fileID: 0}
-  speed: 2
+  speed: 1
 --- !u!114 &8073424273852508096
 MonoBehaviour:
   m_ObjectHideFlags: 0
