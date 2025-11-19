@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27696e627bfc70e40ac9b937d1116cea, type: 3}
+  m_Name: IceV2
+  m_EditorClassIdentifier: 
+  _name: icev2
+  _previewImage: {fileID: -142494650, guid: fdabf7f267b35814aa4430fd3c6b567e, type: 3}
+  _heroPrefab: {fileID: 3676799618298022115, guid: d9fdbeaaee1764c4591bce7cd66451eb, type: 3}
+  _rangeAttack: 5
+  _attackCooldown: 0.5
+  _damage: 25
+  _price: 4
+  _goldToSpawn: 20
+  _rarity: 2

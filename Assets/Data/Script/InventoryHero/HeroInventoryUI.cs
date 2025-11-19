@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HeroInventoryUI : MonoBehaviour
 {
-    public static HeroInventoryUI Instance;
+    // public static HeroInventoryUI Instance;
     [SerializeField] private Transform contentParent;
     [SerializeField] private List<HeroSlotUI> _heroSlots = new List<HeroSlotUI>();
     [Header("Hero Detail UI")]
@@ -17,10 +17,10 @@ public class HeroInventoryUI : MonoBehaviour
     private bool _isInitialized = false;
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        // if (Instance == null)
+        // {
+        //     Instance = this;
+        // }
         InitializeSlots();
     }
     void Start()
@@ -51,11 +51,15 @@ public class HeroInventoryUI : MonoBehaviour
 
     private void OnEnable()
     {
+        PartyUIManager.OnOpenPartyUI += Refresh;
+        UpgradeUIManager.OnOpenUpgrade += Refresh;
         HeroInventory.InventoryHeroChanged += Refresh;
         HeroSlotUI.ShowInformationHero += ShowHeroDetail;
     }
     private void OnDisable()
     {
+        PartyUIManager.OnOpenPartyUI -= Refresh;
+        UpgradeUIManager.OnOpenUpgrade -= Refresh;
         HeroInventory.InventoryHeroChanged -= Refresh;
         HeroSlotUI.ShowInformationHero -= ShowHeroDetail;
 
@@ -77,7 +81,7 @@ public class HeroInventoryUI : MonoBehaviour
     }
     public void ShowHeroDetail(HeroData hero)
     {
-        if (hero == null) return;
+        if (hero == null || _heroNameText == null || _rangeText == null || _rarityText == null || _damageText == null) return;
         _heroNameText.text = $"HeroName - {hero._name}";
         _rarityText.text = $"Rarity - {hero._rarity}";
         _damageText.text = $"Damage - {hero._damage}";
@@ -85,6 +89,8 @@ public class HeroInventoryUI : MonoBehaviour
     }
     public void RefreshDetail()
     {
+        if (_heroNameText == null || _rangeText == null || _rarityText == null || _damageText == null)
+            return;
         _heroNameText.text = "HeroName - ";
         _rarityText.text = "Rarity - ";
         _damageText.text = "Damage - ";

@@ -20,4 +20,8 @@ MonoBehaviour:
   _damage: 40
   _price: 5
   _goldToSpawn: 50
+  _level: 1
+  _diamondUpgrade: 200
+  _heroUpgrade: {fileID: 11400000, guid: ecddb2e96c38c3c409910ba31017d560, type: 2}
+  _upgradeRate: 70
   _rarity: 2

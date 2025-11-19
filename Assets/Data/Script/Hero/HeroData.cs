@@ -12,5 +12,9 @@ public class HeroData : ScriptableObject
     public float _damage;
     public int _price;
     public int _goldToSpawn;
+    public int _level;
+    public int _diamondUpgrade;
+    public HeroData _heroUpgrade;
+    public float _upgradeRate;
     public HeroRarity _rarity;
 }

@@ -1,5 +1,7 @@
 
+using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +13,8 @@ public class HeroSummonUI : MonoBehaviour
     [SerializeField] private TMP_Text _heroName;
     [SerializeField] private TMP_Text _damageText;
     [SerializeField] private TMP_Text _rangeText;
+    //event
+    public static event Action<Action> OnSumonUI;
     private void Awake()
     {
         ResetUI();
@@ -35,7 +39,7 @@ public class HeroSummonUI : MonoBehaviour
     {
         if (hero == null) return;
         ResetUI();
-        CircleRotateUI.Instance.StartEffect(() =>
+        OnSumonUI.Invoke(() =>
    {
        _previewHero.sprite = hero._previewImage;
        _previewHero.enabled = true;

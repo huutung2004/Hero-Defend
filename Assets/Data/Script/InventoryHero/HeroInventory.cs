@@ -23,7 +23,7 @@ public class HeroInventory : MonoBehaviour
     }
     public void AddHero(HeroData newHero)
     {
-        if (heroList.Count < _maxList)
+        if (newHero != null && heroList.Count < _maxList)
         {
             heroList.Add(newHero);
             InventoryHeroChanged?.Invoke();
@@ -37,6 +37,16 @@ public class HeroInventory : MonoBehaviour
         InventoryHeroRemoved?.Invoke(sellHero);
         CurrencyManager.Instance.ChangeCurrentDiamond(sellHero._price);
 
+    }
+    public bool RemoveHero(HeroData hero)
+    {
+        if (heroList.Contains(hero))
+        {
+            heroList.Remove(hero);
+            InventoryHeroChanged?.Invoke();
+            return true;
+        }
+        return false;
     }
     public bool IsFull()
     {

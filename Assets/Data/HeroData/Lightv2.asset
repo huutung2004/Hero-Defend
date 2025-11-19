@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27696e627bfc70e40ac9b937d1116cea, type: 3}
+  m_Name: Lightv2
+  m_EditorClassIdentifier: 
+  _name: lightv2
+  _previewImage: {fileID: -450712276, guid: aeea1350a2be3654cab18645cbc4dc88, type: 3}
+  _heroPrefab: {fileID: 4808883702197170065, guid: 02e02393c1bdfbe4a939a6cf4f8c3d6a, type: 3}
+  _rangeAttack: 5
+  _attackCooldown: 0.5
+  _damage: 50
+  _price: 5
+  _goldToSpawn: 50
+  _rarity: 3

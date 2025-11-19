@@ -7,7 +7,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CanvasGroup))]
 public class CircleRotateUI : MonoBehaviour
 {
-    public static CircleRotateUI Instance{ get; set; }
+    // public static CircleRotateUI Instance{ get; set; }
     private Image _circleImage;
     private CanvasGroup _circleCanvasGroup;
     [Header("Settings")]
@@ -16,11 +16,21 @@ public class CircleRotateUI : MonoBehaviour
     [SerializeField] private float resetDuration = 0.2f;
     void Awake()
     {
-        Instance = this;
+        // Instance = this;
         _circleImage = gameObject.GetComponent<Image>();
         _circleCanvasGroup = gameObject.GetComponent<CanvasGroup>();
     }
+    private void OnEnable()
+    {
+        HeroSummonUI.OnSumonUI += StartEffect;
+        UpgradeManager.OnUpgradeUI += StartEffect;
+    }
+    private void OnDisable()
+    {
+        HeroSummonUI.OnSumonUI -= StartEffect;
+        UpgradeManager.OnUpgradeUI -= StartEffect;
 
+    }
     public void StartEffect(Action onComplete = null)
     {
         if (_circleImage == null || _circleCanvasGroup == null) return;

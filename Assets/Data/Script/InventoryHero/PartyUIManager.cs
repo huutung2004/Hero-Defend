@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class PartyUIManager : MonoBehaviour
     [SerializeField] private Button _buttonParty;
     [SerializeField] private Image _panelParty;
 
+    //event
+    public static event Action OnOpenPartyUI;
     void Start()
     {
         if (_buttonParty == null || _panelParty == null)
@@ -55,8 +58,8 @@ public class PartyUIManager : MonoBehaviour
     {
         // Chờ 1 frame để đảm bảo UI đã được kích hoạt và cập nhật
         yield return null;
-
-        HeroInventoryUI.Instance.Refresh();
+        OnOpenPartyUI?.Invoke();
+        // HeroInventoryUI.Instance.Refresh();
         HeroLineupUI.Instance.RefreshUI();
     }
 }

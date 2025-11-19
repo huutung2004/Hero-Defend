@@ -43,7 +43,7 @@ public class ConfirmSellHero : MonoBehaviour
         {
             _heroSell = _hero;
             _priceSell.text = $"{_hero._price} - D";
-            Debug.Log("đã nhận herota từ event");
+            // Debug.Log("đã nhận herota từ event");
         }
         else
         {

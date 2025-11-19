@@ -34,11 +34,17 @@ public class HeroSummonManager : MonoBehaviour
     }
     public HeroData Summon()
     {
-        //kiểm tra cooldown và bắn sự kiện
+        //kiếm tra full và bắn sự kiện
+        if (HeroInventory.Instance.IsFull())
+        {
+            HeroInventoryFull?.Invoke();
+            return null;
+        }
         if (CurrencyManager.Instance.GetCurrentDiamond() < _dimondPerOnece)
         {
 
             NotEnoughtDiamond?.Invoke();
+            return null;
         }
         else CurrencyManager.Instance.ChangeCurrentDiamond(-_dimondPerOnece);
         if (!_canSumon)
@@ -47,12 +53,7 @@ public class HeroSummonManager : MonoBehaviour
             OnCoolDown?.Invoke();
             return null;
         }
-        //kiếm tra full và bắn sự kiện
-        if (HeroInventory.Instance.IsFull())
-        {
-            HeroInventoryFull?.Invoke();
-            return null;
-        }
+        //kiểm tra cooldown và bắn sự kiện
         _canSumon = false;
         _lastSummonTime = Time.time;
         Invoke(nameof(ResetCooldown), _cooldown);

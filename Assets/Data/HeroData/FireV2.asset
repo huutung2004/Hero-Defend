@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27696e627bfc70e40ac9b937d1116cea, type: 3}
+  m_Name: FireV2
+  m_EditorClassIdentifier: 
+  _name: Firev2
+  _previewImage: {fileID: 413001995, guid: c9539a9cc32980448a094ba85cc9aad6, type: 3}
+  _heroPrefab: {fileID: 6650202963904287254, guid: 8475532edaf5fea4ebee6ff693fabe78, type: 3}
+  _rangeAttack: 5
+  _attackCooldown: 0.5
+  _damage: 15
+  _price: 3
+  _goldToSpawn: 10
+  _rarity: 1

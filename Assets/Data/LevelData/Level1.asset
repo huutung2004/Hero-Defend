@@ -17,4 +17,4 @@ MonoBehaviour:
   _startGold: 100
   _totalHp: 30
   heroRewards:
-  - {fileID: 11400000, guid: 98e35a6fca1d91d429137af4011ab637, type: 2}
+  - {fileID: 11400000, guid: f5380f9b5962b0140bd01b4d9812aa30, type: 2}

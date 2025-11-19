@@ -30,7 +30,7 @@ public class HeroLineup : MonoBehaviour
     }
     public bool AddHeroInLineup(HeroData heroData)
     {
-        if (heroData != null || listHeroLineup.Count > _maxSlot)
+        if (heroData != null && listHeroLineup.Count < _maxSlot)
         {
             if (listHeroLineup.Contains(heroData))
             {
