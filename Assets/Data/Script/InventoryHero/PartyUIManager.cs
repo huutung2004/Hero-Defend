@@ -35,7 +35,7 @@ public class PartyUIManager : MonoBehaviour
         _panelParty.gameObject.SetActive(false);
 
         // Gán sự kiện click
-        _buttonParty.onClick.RemoveAllListeners();
+        // _buttonParty.onClick.RemoveAllListeners();
         _buttonParty.onClick.AddListener(() => OnParty());
     }
 

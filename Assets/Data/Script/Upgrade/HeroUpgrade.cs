@@ -26,14 +26,14 @@ public class HeroUpgrade : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    private void OnEnable()
-    {
-        HeroInventory.InventoryHeroRemoved += RemoveHeroFromUpgrade;
-    }
-    private void OnDisable()
-    {
-        HeroInventory.InventoryHeroRemoved -= RemoveHeroFromUpgrade;
-    }
+    // private void OnEnable()
+    // {
+    //     HeroInventory.InventoryHeroRemoved += RemoveHeroFromUpgrade;
+    // }
+    // private void OnDisable()
+    // {
+    //     HeroInventory.InventoryHeroRemoved -= RemoveHeroFromUpgrade;
+    // }
     public bool AddHeroInUpgrade(HeroData heroData)
     {
         if (heroData != null && listHeroUpgrade.Count == 0)

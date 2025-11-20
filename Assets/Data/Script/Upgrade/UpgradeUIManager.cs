@@ -35,7 +35,7 @@ public class UpgradeUIManager : MonoBehaviour
         _panelUpgrade.gameObject.SetActive(false);
 
         // Gán sự kiện click
-        _buttonUpgrade.onClick.RemoveAllListeners();
+        // _buttonUpgrade.onClick.RemoveAllListeners();
         _buttonUpgrade.onClick.AddListener(() => OnUpgrade());
     }
 

@@ -68,6 +68,7 @@ public class PlayerAttackController : MonoBehaviour
         if (_attackTimer >= _heroData._attackCooldown)
         {
             _attackTimer = 0;
+            PlayAudio();
             if (_normalAttackCount < 10)
             {
                 DoNormalAttack();
@@ -84,19 +85,39 @@ public class PlayerAttackController : MonoBehaviour
     {
         _animator.Play("attack");
         // Spawn instant skill
-        ProjectilePool.Instance.GetProjectile(_projectileType, _target.position - new Vector3(0f, 0.5f, 0f),_heroData._damage);
+        ProjectilePool.Instance.GetProjectile(_projectileType, _target.position - new Vector3(0f, 0.5f, 0f), _heroData._damage);
     }
     void DoStrongAttack()
     {
         _animator.Play("attack");
 
-        ProjectilePool.Instance.GetProjectile(_projectileType, _target.position - new Vector3(0f, 0.5f, 0f),_heroData._damage);
+        ProjectilePool.Instance.GetProjectile(_projectileType, _target.position - new Vector3(0f, 0.5f, 0f), _heroData._damage);
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _heroData._rangeAttack);
+    }
+    void PlayAudio()
+    {
+        switch (_projectileType)
+        {
+            case ProjectileType.light:
+                MusicManager.Instance.PlayMusic("light");
+                break;
+            case ProjectileType.dark:
+                MusicManager.Instance.PlayMusic("dark");
+                break;
+            case ProjectileType.ice:
+                MusicManager.Instance.PlayMusic("ice");
+                break;
+            case ProjectileType.fire:
+                MusicManager.Instance.PlayMusic("fire");
+                break;
+            default: break;
+
+        }
     }
 
 }

@@ -33,6 +33,7 @@ public class CircleRotateUI : MonoBehaviour
     }
     public void StartEffect(Action onComplete = null)
     {
+        MusicManager.Instance.PlayMusic("spin");
         if (_circleImage == null || _circleCanvasGroup == null) return;
         //reset rotation
         _circleImage.rectTransform.rotation = Quaternion.identity;

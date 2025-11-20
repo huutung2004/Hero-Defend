@@ -15,8 +15,17 @@ public class ButtonEffect : MonoBehaviour
     }
     private void PlayEffectButton()
     {
+        MusicManager.Instance.PlayMusic("tap");
         _button.transform.DOScale(1.2f, 0.2f)
         .SetEase(Ease.OutBounce)
         .OnComplete(() => _button.transform.DOScale(1f, 0.2f));
+    }
+    void OnDisable()
+    {
+        transform.DOKill();
+    }
+    void OnDestroy()
+    {
+        transform.DOKill();
     }
 }

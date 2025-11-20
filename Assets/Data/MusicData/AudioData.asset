@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80338e14e8c64b6478c3e9dbdcd9a0e7, type: 3}
+  m_Name: AudioData
+  m_EditorClassIdentifier: 
+  audioEntries:
+  - _name: Background
+    _clip: {fileID: 8300000, guid: 898f97c4cf2c903408d9ba58c5d365c6, type: 3}
+    _type: 1
+  - _name: dark
+    _clip: {fileID: 8300000, guid: 8d6b0d690e1122a4fa6806ab60562834, type: 3}
+    _type: 0
+  - _name: failed
+    _clip: {fileID: 8300000, guid: 30fe42beda57141419043e789f8cf887, type: 3}
+    _type: 0
+  - _name: fire
+    _clip: {fileID: 8300000, guid: cf273c5099cab1844b74a8103cc21310, type: 3}
+    _type: 0
+  - _name: ice
+    _clip: {fileID: 8300000, guid: 2e5bdd628228a394c967c844339826f0, type: 3}
+    _type: 0
+  - _name: win
+    _clip: {fileID: 8300000, guid: f6e947931d44f4b4fbff4d784073b2ef, type: 3}
+    _type: 0
+  - _name: light
+    _clip: {fileID: 8300000, guid: f8f350c95dfa7b745a37b8e0a5d6a77e, type: 3}
+    _type: 0
+  - _name: notify
+    _clip: {fileID: 8300000, guid: 74a9d3df2ef6b8d4c9375ec04907e6a3, type: 3}
+    _type: 0
+  - _name: spin
+    _clip: {fileID: 8300000, guid: 1218f013f06adfb488626b94b20ae1f1, type: 3}
+    _type: 0
+  - _name: success
+    _clip: {fileID: 8300000, guid: 7b77dd8314580f84db05de3e8c90379d, type: 3}
+    _type: 0
+  - _name: tap
+    _clip: {fileID: 8300000, guid: ec9886576710a1c429669f0238b8c7fa, type: 3}
+    _type: 0

@@ -76,8 +76,12 @@ public class UpgradeManager : MonoBehaviour
     }
     private void InitPreview(HeroData heroData)
     {
-        if (heroData._heroUpgrade == null) return;
         List<HeroData> heroDatas = HeroUpgrade.Instance.listHeroUpgrade;
+        if (heroData._heroUpgrade == null && heroDatas.Count > 0)
+        {
+            DialogManager.Instance.ShowDialog("Max level!");
+            return;
+        }
         if (heroDatas.Count == 0) return;
         _imagePreview.sprite = heroData._heroUpgrade._previewImage;
         _imagePreview.enabled = true;
@@ -97,12 +101,14 @@ public class UpgradeManager : MonoBehaviour
                 {
                     _imagePreview.sprite = heroData._previewImage;
                     _imagePreview.enabled = true;
-                    TextUpgradeEffect.Instance.StartTextEffect("Complete!",Color.red);
+                    MusicManager.Instance.PlayMusic("success");
+                    TextUpgradeEffect.Instance.StartTextEffect("Complete!", Color.red);
                 }
                 else
                 {
                     _imagePreview.enabled = false;
-                    TextUpgradeEffect.Instance.StartTextEffect("Fail!",Color.black);
+                    MusicManager.Instance.PlayMusic("failed");
+                    TextUpgradeEffect.Instance.StartTextEffect("Fail!", Color.black);
                 }
             });
     }

@@ -22,6 +22,7 @@ public class TextEffectSumon : MonoBehaviour
     }
     public void StartTextEffect()
     {
+        MusicManager.Instance.PlayMusic("success");
         TMP_Text text = gameObject.GetComponent<TMP_Text>();
         if (!text.IsActive()) gameObject.SetActive(true);
         text.alpha = 1f;

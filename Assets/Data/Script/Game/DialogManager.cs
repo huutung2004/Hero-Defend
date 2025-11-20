@@ -29,6 +29,7 @@ public class DialogManager : MonoBehaviour
     }
     public void ShowDialog(string text, float duration = 2f)
     {
+        MusicManager.Instance.PlayMusic("notify");
         _dialogText.text = text;
         _dialog.gameObject.SetActive(true);
         _canvasGroup.alpha = 0;

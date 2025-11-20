@@ -44,6 +44,7 @@ public class EndLevelUIManager : MonoBehaviour
     }
     private void ShowNotifyEnd()
     {
+        MusicManager.Instance.PlayMusic("win");
         Time.timeScale = 0f;
         _imageEndLevel.gameObject.SetActive(true);
         if (isComplete)
@@ -66,9 +67,9 @@ public class EndLevelUIManager : MonoBehaviour
         else
         {
             _headerText.text = "Failed";
-            _diamondText.text = $"Diamond-{LevelController.Instance._totalDiamondReward / 3}";
+            _diamondText.text = $"Diamond- 0";
             //nhan diamond
-            CurrencyManager.Instance.ChangeCurrentDiamond(LevelController.Instance._totalDiamondReward/3);
+            // CurrencyManager.Instance.ChangeCurrentDiamond(LevelController.Instance._totalDiamondReward/3);
         }
 
         _buttonConfirm.onClick.AddListener(() => BackToMain());

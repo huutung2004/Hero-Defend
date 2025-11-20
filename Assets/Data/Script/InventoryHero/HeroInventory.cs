@@ -44,6 +44,7 @@ public class HeroInventory : MonoBehaviour
         {
             heroList.Remove(hero);
             InventoryHeroChanged?.Invoke();
+            InventoryHeroRemoved?.Invoke(hero);
             return true;
         }
         return false;
