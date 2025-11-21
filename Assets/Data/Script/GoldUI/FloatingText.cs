@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class FloatingGold : MonoBehaviour
+public class FloatingText : MonoBehaviour
 {
     [SerializeField] private float lifetime = 1f;
     [SerializeField] private TextMeshProUGUI valueText;
@@ -10,11 +10,11 @@ public class FloatingGold : MonoBehaviour
     private float timer;
     private Vector3 startPos;
 
-    public void Play(Vector3 pos, int gold)
+    public void Play(Vector3 pos, string value)
     {
         startPos = pos;
         transform.position = pos;
-        SetValue(gold);
+        SetValue(value);
         gameObject.SetActive(true);
     }
     void OnEnable()
@@ -22,9 +22,9 @@ public class FloatingGold : MonoBehaviour
         timer = 0;
     }
 
-    public void SetValue(int gold)
+    public void SetValue(string value)
     {
-        valueText.text = "+" + gold;
+        valueText.text = value;
     }
 
     void Update()
@@ -40,7 +40,7 @@ public class FloatingGold : MonoBehaviour
 
         if (timer >= lifetime)
         {
-            GoldEffectPool.Instance.ReturnGoldEffectToPool(this);
+            TextEffectPool.Instance.ReturnGOldEffectToPool(this);
         }
     }
 }

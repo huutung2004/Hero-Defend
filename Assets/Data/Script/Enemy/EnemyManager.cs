@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance { get; private set; }
-    private int _enemyAlive;
+    [SerializeField]private int _enemyAlive;
     //event 
     public static Action OnEnemyClear;
     void Awake()
@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
     public void UnregisterAlive()
     {
         _enemyAlive--;
-        if (_enemyAlive <= 0 && LevelController.Instance.IsLastWave())
+        if (_enemyAlive == 0 && LevelController.Instance.IsLastWave() && LevelController.Instance._isLastWaveSpawned)
         {
             OnEnemyClear?.Invoke();
         }

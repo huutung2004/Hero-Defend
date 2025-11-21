@@ -40,6 +40,7 @@ public class Projectile : MonoBehaviour
             if (e != null)
             {
                 e.ChangeHeal(-_damage);
+                EnemyTargetManager.Instance.RegisterTarget(e);
             }
 
             _colider2D.enabled = false;

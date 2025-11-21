@@ -56,5 +56,6 @@ public class EnemyPool : MonoBehaviour
         if (!pools.ContainsKey(type)) return;
         EnemyManager.Instance.UnregisterAlive();
         pools[type].ReturnToPool(enemy.GetComponent<MonoBehaviour>());
+
     }
 }
