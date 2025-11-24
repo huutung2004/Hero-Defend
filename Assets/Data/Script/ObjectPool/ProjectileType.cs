@@ -7,6 +7,9 @@ public enum ProjectileType
     light,
     dark,
     fire,
-    ice
+    ice,
+    icev2,
+    firev2,
+    lightv2
 
 }

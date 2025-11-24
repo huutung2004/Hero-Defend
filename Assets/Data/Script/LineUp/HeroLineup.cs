@@ -55,6 +55,15 @@ public class HeroLineup : MonoBehaviour
             OnHeroLineupChanged?.Invoke();
         }
     }
+    public void SellHeroFromWave(HeroData heroData)
+    {
+        if(heroData!= null)
+        {
+            GoldManager.Instance.ChangeTotalGold(heroData._goldToSpawn/2);
+        }
+        
+    }
+    
     public static void NotifiHeroChanged()
     {
         OnHeroLineupChanged?.Invoke();

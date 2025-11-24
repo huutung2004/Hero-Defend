@@ -40,6 +40,16 @@ public class HeroSummonManager : MonoBehaviour
             HeroInventoryFull?.Invoke();
             return null;
         }
+        //kiểm tra cooldown và bắn sự kiện
+        if (!_canSumon)
+        {
+            float _remaining = _cooldown - (Time.time - _lastSummonTime);
+            OnCoolDown?.Invoke();
+            return null;
+        }
+        _canSumon = false;
+        _lastSummonTime = Time.time;
+        Invoke(nameof(ResetCooldown), _cooldown);
         if (CurrencyManager.Instance.GetCurrentDiamond() < _dimondPerOnece)
         {
 
@@ -47,16 +57,7 @@ public class HeroSummonManager : MonoBehaviour
             return null;
         }
         else CurrencyManager.Instance.ChangeCurrentDiamond(-_dimondPerOnece);
-        if (!_canSumon)
-        {
-            float _remaining = _cooldown - (Time.time - _lastSummonTime);
-            OnCoolDown?.Invoke();
-            return null;
-        }
-        //kiểm tra cooldown và bắn sự kiện
-        _canSumon = false;
-        _lastSummonTime = Time.time;
-        Invoke(nameof(ResetCooldown), _cooldown);
+
         float roll = UnityEngine.Random.value * 100f;
         HeroRarity rarity;
         if (roll < 70f) rarity = HeroRarity.Common;

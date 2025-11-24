@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
     public void UnregisterAlive()
     {
         _enemyAlive--;
-        if (_enemyAlive == 0 && LevelController.Instance.IsLastWave() && LevelController.Instance._isLastWaveSpawned)
+        if (_enemyAlive == 0 && LevelController.Instance._isSpawnedLastWave)
         {
             OnEnemyClear?.Invoke();
         }

@@ -13,9 +13,13 @@ public class ConfirmSellHero : MonoBehaviour
 
     void Awake()
     {
+        HeroSlotUI.SignSellHero += GetHeroSell;
         gameObject.SetActive(false);
-        HeroSlotUI.SignSellHero += HeroSell;
 
+    }
+    void OnEnable()
+    {
+        HeroSlotUI.SignSellHero += GetHeroSell;
     }
     void Start()
     {
@@ -26,7 +30,7 @@ public class ConfirmSellHero : MonoBehaviour
 
     void OnDestroy()
     {
-        HeroSlotUI.SignSellHero -= HeroSell;
+        HeroSlotUI.SignSellHero -= GetHeroSell;
     }
     private void RequestSell()
     {
@@ -36,14 +40,14 @@ public class ConfirmSellHero : MonoBehaviour
             CancelSellHero();
         }
     }
-    private void HeroSell(HeroData _hero)
+    private void GetHeroSell(HeroData _hero)
     {
 
         if (_hero != null)
         {
             _heroSell = _hero;
             _priceSell.text = $"{_hero._price} - D";
-            // Debug.Log("đã nhận herota từ event");
+            Debug.Log("đã nhận herota từ event");
         }
         else
         {

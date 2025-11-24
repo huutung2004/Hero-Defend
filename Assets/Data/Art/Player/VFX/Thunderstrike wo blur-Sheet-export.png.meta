@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 25848be5ae309a041bf2ac22cef9932d
+guid: e8d240789e56afd4bad332fc6dff954c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fire_vfx_0
+      name: Thunderstrike wo blur-Sheet-export_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15ab87d446b6f404aad86cc59c0ccbec
-      internalID: 436804618
+      spriteID: e54be277ebbeeb040a333e2832fb0231
+      internalID: -585626757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_vfx_1
+      name: Thunderstrike wo blur-Sheet-export_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76bb5539b08e3c04fa701e3b916e4b38
-      internalID: 1601662538
+      spriteID: 0316d920150aa0d45aff1a24f271b1cf
+      internalID: -617617209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_vfx_2
+      name: Thunderstrike wo blur-Sheet-export_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,41 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a667a71349f78c44d82b146f18df2fce
-      internalID: -1070542506
+      spriteID: c53f572e470dd2843abb59c69fa2739c
+      internalID: -1449120794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_vfx_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f26f6081829e6a541b06d788bfe8f167
-      internalID: -1845030243
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fire_vfx_4
+      name: Thunderstrike wo blur-Sheet-export_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2573063d54ff09e4c838f170f0924c8c
-      internalID: 1963654252
+      spriteID: d6c62359e41e0734eab14de0cd217b2f
+      internalID: -1187664019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_vfx_5
+      name: Thunderstrike wo blur-Sheet-export_4
       rect:
         serializedVersion: 2
-        x: 240
+        x: 256
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e596dc1ad2f81cb4d873940506ddf8be
-      internalID: -203488998
+      spriteID: d68d1cca233b0aa45b8027d1d3562f08
+      internalID: 251185023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_vfx_6
+      name: Thunderstrike wo blur-Sheet-export_5
       rect:
         serializedVersion: 2
-        x: 288
+        x: 320
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,41 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3c2e576aee1e1944af73513cbccf310
-      internalID: -788098291
+      spriteID: 3f8f6ee98559f0347a0076a23a7f2692
+      internalID: -1355622729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_vfx_7
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 0
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30dee8a5e7efc26428a4fc5a31601c56
-      internalID: 258708936
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fire_vfx_8
+      name: Thunderstrike wo blur-Sheet-export_6
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 009da520eece75b4385bbb3c75889881
-      internalID: -955894202
+      spriteID: 8148109666c27fe45a1e3297cebf5528
+      internalID: -92087445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_vfx_9
+      name: Thunderstrike wo blur-Sheet-export_7
       rect:
         serializedVersion: 2
-        x: 432
+        x: 448
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +284,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4da072e07320ed348b5bc7406879208f
-      internalID: -100160859
+      spriteID: cb22c09e1136fb6488867c3a2bc31cd7
+      internalID: 6819343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_vfx_10
+      name: Thunderstrike wo blur-Sheet-export_8
       rect:
         serializedVersion: 2
-        x: 480
+        x: 512
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,41 +305,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cca79c68664c2bc4fa0c422dcadd32da
-      internalID: 389010069
+      spriteID: 5a1a112758262fd478d2a48d67882a1f
+      internalID: -1292998783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_vfx_11
-      rect:
-        serializedVersion: 2
-        x: 528
-        y: 0
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a387efbc9fd73847a9342d707567c3b
-      internalID: -2111828999
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fire_vfx_12
+      name: Thunderstrike wo blur-Sheet-export_9
       rect:
         serializedVersion: 2
         x: 576
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,20 +326,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a25d767d0f004d40846ad3874cbfc61
-      internalID: 19404193
+      spriteID: 6fb3215aa42bade42b95002886ffdd88
+      internalID: 588040822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_vfx_13
+      name: Thunderstrike wo blur-Sheet-export_10
       rect:
         serializedVersion: 2
-        x: 624
+        x: 640
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,20 +347,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c678ae5384b21dd4aa1528e6e1d3a4d7
-      internalID: 2036008104
+      spriteID: 64bc4a69be9012f4cb688f637a7cc788
+      internalID: 72911710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_vfx_14
+      name: Thunderstrike wo blur-Sheet-export_11
       rect:
         serializedVersion: 2
-        x: 672
+        x: 704
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,8 +368,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbbdc12dc44b58b4f922b0f12e83bdc6
-      internalID: 1370877204
+      spriteID: 5a3b676970953de47ac10551b0e4a415
+      internalID: -1574075650
       vertices: []
       indices: 
       edges: []
@@ -448,21 +385,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fire_vfx_0: 436804618
-      fire_vfx_1: 1601662538
-      fire_vfx_10: 389010069
-      fire_vfx_11: -2111828999
-      fire_vfx_12: 19404193
-      fire_vfx_13: 2036008104
-      fire_vfx_14: 1370877204
-      fire_vfx_2: -1070542506
-      fire_vfx_3: -1845030243
-      fire_vfx_4: 1963654252
-      fire_vfx_5: -203488998
-      fire_vfx_6: -788098291
-      fire_vfx_7: 258708936
-      fire_vfx_8: -955894202
-      fire_vfx_9: -100160859
+      Thunderstrike wo blur-Sheet-export_0: -585626757
+      Thunderstrike wo blur-Sheet-export_1: -617617209
+      Thunderstrike wo blur-Sheet-export_10: 72911710
+      Thunderstrike wo blur-Sheet-export_11: -1574075650
+      Thunderstrike wo blur-Sheet-export_2: -1449120794
+      Thunderstrike wo blur-Sheet-export_3: -1187664019
+      Thunderstrike wo blur-Sheet-export_4: 251185023
+      Thunderstrike wo blur-Sheet-export_5: -1355622729
+      Thunderstrike wo blur-Sheet-export_6: -92087445
+      Thunderstrike wo blur-Sheet-export_7: 6819343
+      Thunderstrike wo blur-Sheet-export_8: -1292998783
+      Thunderstrike wo blur-Sheet-export_9: 588040822
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

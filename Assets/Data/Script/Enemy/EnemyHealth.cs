@@ -43,7 +43,7 @@ public class EnemyHealth : MonoBehaviour
     }
     public bool IsDeath()
     {
-        return _currentHeal == 0;
+       return _currentHeal == 0 || !gameObject.activeSelf;
     }
     public void InitHeal(float heal)
     {

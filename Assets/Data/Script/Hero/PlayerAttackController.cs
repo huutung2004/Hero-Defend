@@ -106,18 +106,31 @@ public class PlayerAttackController : MonoBehaviour
             case ProjectileType.light:
                 MusicManager.Instance.PlayMusic("light");
                 break;
+            case ProjectileType.lightv2:
+                MusicManager.Instance.PlayMusic("light");
+                break;
             case ProjectileType.dark:
                 MusicManager.Instance.PlayMusic("dark");
                 break;
             case ProjectileType.ice:
                 MusicManager.Instance.PlayMusic("ice");
                 break;
+            case ProjectileType.icev2:
+                MusicManager.Instance.PlayMusic("ice");
+                break;
             case ProjectileType.fire:
+                MusicManager.Instance.PlayMusic("fire");
+                break;
+            case ProjectileType.firev2:
                 MusicManager.Instance.PlayMusic("fire");
                 break;
             default: break;
 
         }
+    }
+    public HeroData GetHeroData()
+    {
+        return _heroData;
     }
 
 }

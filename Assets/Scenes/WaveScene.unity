@@ -3064,7 +3064,7 @@ MonoBehaviour:
   _LastWave: {fileID: 11400000, guid: a67c239171a6298498674330fc4c0a36, type: 2}
   _buttonStart: {fileID: 1517163841}
   _pointSpawn: {fileID: 9992060}
-  _isLastWaveSpawned: 0
+  _isSpawnedLastWave: 0
   _totalDiamondReward: 0
   _startGold: 0
   _totalHP: 0
@@ -3985,6 +3985,9 @@ MonoBehaviour:
   - {fileID: 2651445025554395277, guid: f0b957e570537934e8994ef7ed4c88c7, type: 3}
   - {fileID: 6515309647623625105, guid: 8ea016bee1bb5a547a338860c0c2b0ec, type: 3}
   - {fileID: 7153059006374498231, guid: 90783fc026b5c6c48940752339f08cf1, type: 3}
+  - {fileID: 7355009155180630227, guid: dd230c95bc35974468c43cf28b8a2183, type: 3}
+  - {fileID: 2112984442582720106, guid: 2e06adafb5babf5429d687c3e555644e, type: 3}
+  - {fileID: 2258527006161294060, guid: ffb8858667535be49a01368d7892fae2, type: 3}
 --- !u!4 &1740256631
 Transform:
   m_ObjectHideFlags: 0
@@ -4506,6 +4509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caca5e91988d64a46a3082a77d5e2750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _target: {fileID: 0}
 --- !u!4 &1842324730
 Transform:
   m_ObjectHideFlags: 0

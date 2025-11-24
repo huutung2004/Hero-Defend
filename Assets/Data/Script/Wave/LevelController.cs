@@ -16,8 +16,8 @@ public class LevelController : MonoBehaviour
     [SerializeField] private Button _buttonStart;
     //Point Spawn Enemy
     [SerializeField] private Transform _pointSpawn;
-    //flag check
-    public bool _isLastWaveSpawned = false;
+    //flag
+    public bool _isSpawnedLastWave = false;
     //For Level
     private int _levelSelected;
     private int _waveCount;
@@ -155,9 +155,7 @@ public class LevelController : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
             }
         }
-        // Debug.Log(IsLastWave()+ "-"+ _isLastWaveSpawned);
-        if (IsLastWave()) _isLastWaveSpawned = true;
-        Debug.Log(IsLastWave() + "-" + _isLastWaveSpawned);
+        if(IsLastWave()) _isSpawnedLastWave = true;
     }
     public bool IsLastWave()
     {

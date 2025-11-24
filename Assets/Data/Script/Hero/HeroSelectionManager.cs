@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.EventSystems;
+using System;
+
 
 public class HeroSelectionManager : MonoBehaviour
 {
@@ -9,6 +12,8 @@ public class HeroSelectionManager : MonoBehaviour
 
     private Camera mainCam;
     private HeroMovement selectedHero;
+    //event
+    public static event Action<HeroData> OnSelectHero;
 
     private void Awake()
     {
@@ -34,8 +39,20 @@ public class HeroSelectionManager : MonoBehaviour
 
     void Update()
     {
-        if (!GetTapPosition(out Vector3 tapPos))
+        if (EventSystem.current.IsPointerOverGameObject())
             return;
+
+#if UNITY_ANDROID || UNITY_IOS
+        if (Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+            return;
+#endif
+
+        if (!GetTapPosition(out Vector3 tapPos))
+        {
+            // selectedHero = null;
+            return;
+        }
+
 
         Vector3 world = mainCam.ScreenToWorldPoint(tapPos);
         world.z = 0;
@@ -54,7 +71,8 @@ public class HeroSelectionManager : MonoBehaviour
             if (hit != null)
             {
                 selectedHero = hit.GetComponent<HeroMovement>();
-                selectedHero.SelectHero(true);
+                HeroData hero = selectedHero.SelectHero(true);
+                OnSelectHero?.Invoke(hero);
             }
             return;
         }
@@ -62,7 +80,17 @@ public class HeroSelectionManager : MonoBehaviour
         Collider2D heroAtTarget = Physics2D.OverlapCircle(cellCenter, 0.1f, LayerMask.GetMask("Hero"));
         if (heroAtTarget != null)
         {
-            Debug.Log("Ô đã có hero!");
+            HeroMovement clickedHero = heroAtTarget.GetComponent<HeroMovement>();
+            if (clickedHero == selectedHero)
+            {
+                selectedHero.SelectHero(false);
+                selectedHero = null;
+                return;
+            }
+            selectedHero.SelectHero(false);
+            selectedHero = clickedHero;
+            HeroData hero = selectedHero.SelectHero(true);
+            OnSelectHero?.Invoke(hero);
             return;
         }
         //Di chuyển hero
