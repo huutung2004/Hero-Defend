@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class HeroSummonManager : MonoBehaviour
 {
+    [Header("Config")]
+    [SerializeField] private GameConfig _gamecf;
     [Header("List Hero")]
     [SerializeField] private List<HeroData> _allHeroes;
     private Dictionary<HeroRarity, List<HeroData>> _heroByRarity;
@@ -60,9 +62,9 @@ public class HeroSummonManager : MonoBehaviour
 
         float roll = UnityEngine.Random.value * 100f;
         HeroRarity rarity;
-        if (roll < 70f) rarity = HeroRarity.Common;
-        else if (roll < 90f) rarity = HeroRarity.Rare;
-        else if (roll < 97f) rarity = HeroRarity.Legendary;
+        if (roll < _gamecf._rateComon) rarity = HeroRarity.Common;
+        else if (roll < _gamecf._rateComon + _gamecf._rateRare) rarity = HeroRarity.Rare;
+        else if (roll < _gamecf._rateComon + _gamecf._rateRare + _gamecf._rateLegend) rarity = HeroRarity.Legendary;
         else rarity = HeroRarity.Mysthic;
         var list = _heroByRarity[rarity];
         if (list.Count == 0)

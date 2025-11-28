@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LevelController : MonoBehaviour
 {
     public static LevelController Instance { get; set; }
+    [SerializeField] private GameConfig _gamecf;
     [SerializeField] private List<LevelData> _levelDatas;
     //Start--Mid--Last Wave
     [SerializeField] private BaseWaveData _startWave;
@@ -131,12 +132,24 @@ public class LevelController : MonoBehaviour
             //Spawm Boss
             if (i == 1)
             {
+
                 EnemyType type = waveData._enemyBoss.enemyType;
                 GameObject boss = EnemyPool.Instance.GetEnemy(type, _pointSpawn.position);
+                if (waveData == _LastWave)
+                {
+                    boss.transform.localScale = new Vector3(3f, 3f, 0);
+                    boss.transform.position = boss.transform.position + new Vector3(0f, 0.7f, 0f);
+                    boss.GetComponent<EnemyHealth>().InitHeal(10000f);
+                }
+                else
+                {
+                    boss.transform.localScale = new Vector3(1.5f, 1.5f, 0);
+                    boss.transform.position = boss.transform.position + new Vector3(0f, 0.25f, 0f);
+                    boss.GetComponent<EnemyHealth>().InitHeal(100f);
+                }
                 boss.GetComponent<EnemyMovement>().InitWaypoints(GameObject.FindWithTag("Waypoints").transform);
-                boss.transform.localScale = new Vector3(1.5f, 1.5f, 0);
-                boss.GetComponent<EnemyHealth>().InitHeal(100f);
-                yield return new WaitForSeconds(0.5f);
+
+                yield return new WaitForSeconds(_gamecf._timeSpawnPerEnemy);
             }
             //SpawnLeader
             else if (i == 2)
@@ -145,17 +158,17 @@ public class LevelController : MonoBehaviour
                 GameObject boss = EnemyPool.Instance.GetEnemy(type, _pointSpawn.position);
                 boss.GetComponent<EnemyMovement>().InitWaypoints(GameObject.FindWithTag("Waypoints").transform);
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(_gamecf._timeSpawnPerEnemy);
             }
             else
             {
                 EnemyType type = waveData._enemyBasic.enemyType;
                 GameObject boss = EnemyPool.Instance.GetEnemy(type, _pointSpawn.position);
                 boss.GetComponent<EnemyMovement>().InitWaypoints(GameObject.FindWithTag("Waypoints").transform);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(_gamecf._timeSpawnPerEnemy);
             }
         }
-        if(IsLastWave()) _isSpawnedLastWave = true;
+        if (IsLastWave()) _isSpawnedLastWave = true;
     }
     public bool IsLastWave()
     {

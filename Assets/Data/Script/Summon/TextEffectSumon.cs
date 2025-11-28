@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 public class TextEffectSumon : MonoBehaviour
 {
-    public static TextEffectSumon Instance{ get; set; }
+    public static TextEffectSumon Instance { get; set; }
     [Header("Setting")]
     [SerializeField] private float moveDistance = 10f;
     [SerializeField] private float duration = 1f;
@@ -20,7 +21,7 @@ public class TextEffectSumon : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    public void StartTextEffect()
+    public void StartTextEffect(Action onComplete = null)
     {
         MusicManager.Instance.PlayMusic("success");
         TMP_Text text = gameObject.GetComponent<TMP_Text>();

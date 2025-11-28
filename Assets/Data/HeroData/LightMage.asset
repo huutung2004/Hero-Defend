@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LightMage
   m_EditorClassIdentifier: 
   _name: LightMage
-  _previewImage: {fileID: -587226329, guid: 2e2c0852263ad9746bfb0612895e6a03, type: 3}
+  _previewImage: {fileID: -1852108573, guid: 72559439cc9ea8043bb73220adc9857f, type: 3}
   _heroPrefab: {fileID: 9149839960822737292, guid: 101ba17fcbc7f3244835ff048aedf71e, type: 3}
   _rangeAttack: 4
   _attackCooldown: 1

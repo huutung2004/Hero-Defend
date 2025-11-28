@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireHero
   m_EditorClassIdentifier: 
   _name: FireHero
-  _previewImage: {fileID: 783385543, guid: cc4c2546d3421934b9acbe1210e15ac4, type: 3}
+  _previewImage: {fileID: -2036243447, guid: 72559439cc9ea8043bb73220adc9857f, type: 3}
   _heroPrefab: {fileID: 2886330371619390123, guid: efdb43e5d873aab45b98b9df38d5c514, type: 3}
   _rangeAttack: 4
   _attackCooldown: 1

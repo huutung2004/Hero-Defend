@@ -11,6 +11,9 @@ public class EnemyTargetUI : MonoBehaviour
     [SerializeField] private Image _healthBar;
     [SerializeField] private TMP_Text _healthText;
     private EnemyHealth _target;
+    //for fill
+    private float _tartgetFill;
+    private float _currentFill;
     private void Update()
     {
         _target = EnemyTargetManager.Instance._target;
@@ -18,7 +21,9 @@ public class EnemyTargetUI : MonoBehaviour
         {
             _panel.gameObject.SetActive(true);
             _spriteTarget.sprite = _target.GetSprite();
-            _healthBar.fillAmount = _target.GetHealthPercent();
+            _tartgetFill = _target.GetHealthPercent();
+            _currentFill = Mathf.Lerp(_currentFill, _tartgetFill, Time.deltaTime * 5f);
+            _healthBar.fillAmount = _currentFill;
             _healthText.text = $"{_target.GetCurrentHealth()}/{_target.GetMaxHealth()}";
         }
         else

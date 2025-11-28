@@ -54,6 +54,7 @@ public class CircleRotateUI : MonoBehaviour
         seq.Append(_circleImage.rectTransform
             .DORotate(Vector3.zero, 0.1f)
             .SetEase(Ease.InOutSine));
+        
         seq.Join(_circleCanvasGroup.DOFade(1f, resetDuration));
         if (onComplete != null)
         {

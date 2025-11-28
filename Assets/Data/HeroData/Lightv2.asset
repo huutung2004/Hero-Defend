@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: Lightv2
   m_EditorClassIdentifier: 
   _name: lightv2
-  _previewImage: {fileID: -450712276, guid: aeea1350a2be3654cab18645cbc4dc88, type: 3}
+  _previewImage: {fileID: -703642837, guid: 72559439cc9ea8043bb73220adc9857f, type: 3}
   _heroPrefab: {fileID: 4808883702197170065, guid: 02e02393c1bdfbe4a939a6cf4f8c3d6a, type: 3}
   _rangeAttack: 5
-  _attackCooldown: 0.5
+  _attackCooldown: 0.7
   _damage: 50
   _price: 5
   _goldToSpawn: 50
+  _level: 0
+  _diamondUpgrade: 0
+  _heroUpgrade: {fileID: 0}
+  _upgradeRate: 0
   _rarity: 3

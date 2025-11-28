@@ -5,11 +5,17 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class TimeWaveUI : MonoBehaviour
 {
     private TMP_Text _time;
     private float _timeFloat;
+    private float _maxTime;
+    //for healthbar 
+    private float _currentFill;
+    private float _targetFill;
+    [SerializeField] private Image _imgTime;
     public static event Action OnTimeStamp;
     void Start()
     {
@@ -26,6 +32,9 @@ public class TimeWaveUI : MonoBehaviour
         {
             _timeFloat -= Time.deltaTime * 1.5f;
             int timeInt = (int)_timeFloat;
+            _targetFill = _timeFloat / _maxTime;
+            _currentFill = Mathf.Lerp(_currentFill, _targetFill, Time.deltaTime * 5f);
+            _imgTime.fillAmount = _currentFill;
             RefreshUI(timeInt);
         }
         if (_timeFloat < 0)
@@ -46,9 +55,14 @@ public class TimeWaveUI : MonoBehaviour
     {
         _time.text = time.ToString();
         _timeFloat = time;
+        _maxTime = time;
+        _targetFill = 1f;
+        _currentFill = 1f;
+        _imgTime.fillAmount = 1f;
+
     }
     private void RefreshUI(int time)
     {
-        _time.text = $"Time: {time}";
+        _time.text = $"{time}";
     }
 }

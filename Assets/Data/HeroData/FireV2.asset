@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: FireV2
   m_EditorClassIdentifier: 
   _name: Firev2
-  _previewImage: {fileID: 413001995, guid: c9539a9cc32980448a094ba85cc9aad6, type: 3}
+  _previewImage: {fileID: 2144084450, guid: 72559439cc9ea8043bb73220adc9857f, type: 3}
   _heroPrefab: {fileID: 6650202963904287254, guid: 8475532edaf5fea4ebee6ff693fabe78, type: 3}
   _rangeAttack: 5
-  _attackCooldown: 0.5
+  _attackCooldown: 0.7
   _damage: 15
   _price: 3
   _goldToSpawn: 10
+  _level: 0
+  _diamondUpgrade: 0
+  _heroUpgrade: {fileID: 0}
+  _upgradeRate: 0
   _rarity: 1

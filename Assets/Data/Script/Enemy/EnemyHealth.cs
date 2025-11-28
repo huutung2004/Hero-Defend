@@ -43,16 +43,20 @@ public class EnemyHealth : MonoBehaviour
     }
     public bool IsDeath()
     {
-       return _currentHeal == 0 || !gameObject.activeSelf;
+        return _currentHeal == 0 || !gameObject.activeSelf;
     }
     public void InitHeal(float heal)
     {
         _maxHeal += heal;
         _currentHeal = _maxHeal;
     }
+    public void BuffHealPercent(float percent)
+    {
+        _maxHeal += _maxHeal * percent;
+    }
     public float GetHealthPercent()
     {
-        return _currentHeal/_maxHeal;
+        return _currentHeal / _maxHeal;
     }
     public Sprite GetSprite()
     {

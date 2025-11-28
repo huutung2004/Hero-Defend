@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Darkv2
   m_EditorClassIdentifier: 
   _name: darkv2
-  _previewImage: {fileID: 464664701, guid: e45ba786d3d5e184b98e6eac5b4e715b, type: 3}
+  _previewImage: {fileID: 166936772, guid: 72559439cc9ea8043bb73220adc9857f, type: 3}
   _heroPrefab: {fileID: 7795254947686650435, guid: 2ba7b0266b609384dac068b509b056d4, type: 3}
   _rangeAttack: 5
-  _attackCooldown: 0.5
+  _attackCooldown: 0.7
   _damage: 120
   _price: 100
   _goldToSpawn: 100

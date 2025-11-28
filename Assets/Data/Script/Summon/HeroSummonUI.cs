@@ -1,5 +1,7 @@
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,10 +15,18 @@ public class HeroSummonUI : MonoBehaviour
     [SerializeField] private TMP_Text _heroName;
     [SerializeField] private TMP_Text _damageText;
     [SerializeField] private TMP_Text _rangeText;
+    [SerializeField] private Image _imageEffect;
+    [SerializeField] private Color _commonColor;
+    [SerializeField] private Color _rareColor;
+    [SerializeField] private Color _legendColor;
+    [SerializeField] private Color _mysthicColor;
+
+
     //event
     public static event Action<Action> OnSumonUI;
     private void Awake()
     {
+        _imageEffect.gameObject.SetActive(false);
         ResetUI();
     }
     private void OnEnable()
@@ -41,6 +51,26 @@ public class HeroSummonUI : MonoBehaviour
         ResetUI();
         OnSumonUI.Invoke(() =>
    {
+       switch (hero._rarity)
+       {
+           case HeroRarity.Common:
+               _imageEffect.color = _commonColor;
+               _imageEffect.gameObject.SetActive(true);
+
+               break;
+           case HeroRarity.Rare:
+               _imageEffect.color = _rareColor;
+               _imageEffect.gameObject.SetActive(true);
+               break;
+           case HeroRarity.Legendary:
+               _imageEffect.color = _legendColor;
+               _imageEffect.gameObject.SetActive(true);
+               break;
+           case HeroRarity.Mysthic:
+               _imageEffect.color = _mysthicColor;
+               _imageEffect.gameObject.SetActive(true);
+               break;
+       }
        _previewHero.sprite = hero._previewImage;
        _previewHero.enabled = true;
        _heroName.text = $"HeroName - {hero._name}";
@@ -49,6 +79,8 @@ public class HeroSummonUI : MonoBehaviour
        _rangeText.text = $"Range - {hero._rangeAttack}";
 
        TextEffectSumon.Instance.StartTextEffect();
+       StartCoroutine(waitEffect(2f));
+
    });
     }
     private void ResetUI()
@@ -59,6 +91,8 @@ public class HeroSummonUI : MonoBehaviour
         _rarityText.text = "Rarity - ";
         _damageText.text = "Damage - ";
         _rangeText.text = "Range - ";
+        _imageEffect.gameObject.SetActive(false);
+
     }
     private void ShowFullInventory()
     {
@@ -71,5 +105,10 @@ public class HeroSummonUI : MonoBehaviour
     private void ShowDialogNotEnought()
     {
         DialogManager.Instance.ShowDialog("Not Enought Dimond (10 Diamomd)!", 2f);
+    }
+    private IEnumerator waitEffect(float t)
+    {
+        yield return new WaitForSeconds(t);
+        _imageEffect.gameObject.SetActive(false);
     }
 }

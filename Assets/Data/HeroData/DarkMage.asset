@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DarkMage
   m_EditorClassIdentifier: 
   _name: DarkMage
-  _previewImage: {fileID: -822725967, guid: 85a86b4406d80b243b703933408689c6, type: 3}
+  _previewImage: {fileID: 1173387045, guid: 72559439cc9ea8043bb73220adc9857f, type: 3}
   _heroPrefab: {fileID: 1011479526755268703, guid: b2a72b9cf6c7f9f4bbbb05a6cf1d9c5c, type: 3}
   _rangeAttack: 4
   _attackCooldown: 1

@@ -20,6 +20,6 @@ public class GoldUI : MonoBehaviour
     }
     private void RefreshUI(int gold)
     {
-        _goldText.text = $"Gold: {gold}";
+        _goldText.text = $"{gold}";
     }
 }

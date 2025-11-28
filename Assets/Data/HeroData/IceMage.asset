@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IceMage
   m_EditorClassIdentifier: 
   _name: IceMage
-  _previewImage: {fileID: -179452619, guid: 7d29d80a01437094cb6fd83dfd31774f, type: 3}
+  _previewImage: {fileID: -1432678231, guid: 72559439cc9ea8043bb73220adc9857f, type: 3}
   _heroPrefab: {fileID: 4579377597061678040, guid: a10b6638181965d4e88c0128afdfd2ee, type: 3}
   _rangeAttack: 4
   _attackCooldown: 1
